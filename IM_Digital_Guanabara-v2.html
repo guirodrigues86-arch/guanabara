@@ -1666,7 +1666,7 @@ button.tab.on{background-color:#4D9EFF!important;border-color:#4D9EFF!important;
     <div class="gm info"><div class="gm-name">CPF como chave de correlação (Customer 360)</div><div class="gm-desc">O CPF do passageiro é o identificador que conecta GA4 (comportamento de navegação), CRM (histórico de compra), bilhetagem (canal de venda) e call center (atendimento). Sem essa chave definida, os dados de cada sistema ficam em silos isolados — impossibilitando análises de fidelização e jornada completa do cliente.</div></div>
     <div class="gm info"><div class="gm-name">NRR (Net Revenue Retention)</div><div class="gm-desc">Crescimento de receita gerado pela base de clientes existente, sem contar novas aquisições. NRR acima de 100% significa que a empresa cresceria mesmo sem adquirir nenhum cliente novo — o melhor indicador de saúde de longo prazo de uma base CRM.</div></div>
     <div class="gm info"><div class="gm-name">Load Factor Digital por Rota</div><div class="gm-desc">Percentual de assentos vendidos via canal digital (próprio + terceiros) em relação à capacidade total ofertada por rota. Permite identificar se a queda de share offline é porque o ônibus está vazio (problema de malha) ou porque o passageiro migrou para outro canal (problema de canalização).</div></div>
-<script>Chart.register(ChartDataLabels);var _pi={},_pi=pi;function showPortal(w){document.querySelectorAll(".case-panel").forEach(function(p){p.classList.remove("active");});document.querySelectorAll(".portal-tab").forEach(function(t){t.className="portal-tab";});document.getElementById("panel-"+w).classList.add("active");var tb=document.getElementById("tab-"+w);if(tb)tb.classList.add("act-"+w);window.scrollTo(0,0);if(!_pi[w]){_pi[w]=true;if(w==="c02"&&typeof initC02Charts==="function")setTimeout(initC02Charts,150);if(w==="c01"&&typeof initC01Charts==="function")setTimeout(initC01Charts,150);}}</script>
+<script>Chart.register(ChartDataLabels);var pi={},_pi=pi;function showPortal(w){document.querySelectorAll(".case-panel").forEach(function(p){p.classList.remove("active");});document.querySelectorAll(".portal-tab").forEach(function(t){t.className="portal-tab";});document.getElementById("panel-"+w).classList.add("active");var tb=document.getElementById("tab-"+w);if(tb)tb.classList.add("act-"+w);window.scrollTo(0,0);if(!_pi[w]){_pi[w]=true;if(w==="c02"&&typeof initC02Charts==="function")setTimeout(initC02Charts,150);if(w==="c01"&&typeof initC01Charts==="function")setTimeout(initC01Charts,150);}}</script>
 <script>
 
 
@@ -1733,7 +1733,7 @@ function setPeriod_c02(p,btn){
   updateKPIs();
   updateTable();
   renderLollipop();
-  setTimeout(function(){var _p=document.getElementById('panel-c02');var _a=_p?_p.querySelector('.sec.on'):null;buildCharts(a?a.id:'t1');},80);
+  setTimeout(function(){var _p=document.getElementById('panel-c02');var _a=_p?_p.querySelector('.sec.on'):null;buildCharts(_a?_a.id:'t1');},80);
 }
 
 function setFocus_c02(f,btn){
@@ -1993,7 +1993,7 @@ function buildCharts(active){
 }
 
 
-function initC02Charts(){updateKPIs();updateTable();renderLollipop();updateCtrlInfo();var _p=document.getElementById('panel-c02');var _a=_p?_p.querySelector('.sec.on'):null;setTimeout(function(){buildCharts(a?a.id:'t1');},80);}</script>
+function initC02Charts(){updateKPIs();updateTable();renderLollipop();updateCtrlInfo();var _p=document.getElementById('panel-c02');var _a=_p?_p.querySelector('.sec.on'):null;setTimeout(function(){buildCharts(_a?_a.id:'t1');},80);}</script>
 <script>
 
 const _W1='rgba(255,255,255,0.9)',_g1='rgba(255,255,255,0.06)',_t1='rgba(255,255,255,0.45)';
@@ -2049,7 +2049,7 @@ function setPeriod_c01(p,btn){
   Object.values(_charts1).forEach(c=>{try{c.destroy()}catch(e){}});
   _charts1={};
   updateTable();
-  setTimeout(function(){var _p=document.getElementById('panel-c01');var _a=_p?_p.querySelector('.sec.on'):null;buildCharts(a?a.id:'n1');},80);
+  setTimeout(function(){var _p=document.getElementById('panel-c01');var _a=_p?_p.querySelector('.sec.on'):null;buildCharts(_a?_a.id:'n1');},80);
 }
 
 function setComp_c01(c,btn){
@@ -2121,7 +2121,7 @@ function buildCharts(active){
   }
 }
 
-function initC01Charts(){updateTable();var _p=document.getElementById('panel-c01');var _a=_p?_p.querySelector('.sec.on'):null;setTimeout(function(){buildCharts(a?a.id:'n1');},80);}</script>
+function initC01Charts(){updateTable();var _p=document.getElementById('panel-c01');var _a=_p?_p.querySelector('.sec.on'):null;setTimeout(function(){buildCharts(_a?_a.id:'n1');},80);}</script>
 <script>
 function showTab_c03(el,id){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
