@@ -1,0 +1,2152 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IM Digital — Smart Travel / Grupo Guanabara</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0A0C10;--bg2:#161B24;--bg3:#1E2536;--bg4:#222C3C;--b1:rgba(255,255,255,0.07);--b2:rgba(255,255,255,0.14);--b3:rgba(255,255,255,0.28);--t1:#F0F4FF;--t2:#BDC7E0;--t3:#7A8499;--blue:#4D9EFF;--blue2:rgba(77,158,255,0.12);--blueb:rgba(77,158,255,0.35);--green:#2DD4A0;--green2:rgba(45,212,160,0.10);--greenb:rgba(45,212,160,0.35);--red:#FF5E5E;--red2:rgba(255,94,94,0.10);--redb:rgba(255,94,94,0.35);--amber:#FFB547;--amber2:rgba(255,181,71,0.10);--amberb:rgba(255,181,71,0.35);--purple:#A78BFA;--purple2:rgba(167,139,250,0.10);--r:8px;--r2:12px;}html,body{background:var(--bg);color:var(--t1);font-family:"DM Sans",sans-serif;font-size:14px;min-height:100vh}.portal-nav{position:sticky;top:0;z-index:1000;background:var(--bg2);border-bottom:1px solid var(--b2);display:flex;align-items:center;padding:0 20px;height:54px}.portal-brand{display:flex;flex-direction:column;justify-content:center;padding-right:24px;border-right:1px solid var(--b1);margin-right:20px;min-width:210px}.portal-brand .name{font-size:12px;font-weight:700;color:var(--t1)}.portal-brand .sub{font-size:10px;color:var(--t3)}.portal-tabs{display:flex;gap:3px;flex:1}.portal-tab{padding:8px 16px;border-radius:var(--r);background:transparent;border:1px solid transparent;cursor:pointer;font-size:12px;font-weight:600;color:var(--t3);font-family:"DM Sans",sans-serif;transition:all 0.15s;display:flex;align-items:center;gap:8px;white-space:nowrap}.portal-tab:hover{background:var(--bg3);color:var(--t1)}.portal-tab.act-home{background:var(--bg3);border-color:var(--b2);color:var(--t1)}.portal-tab.act-c02{background:var(--red2);border-color:var(--redb);color:var(--red)}.portal-tab.act-c01{background:var(--blue2);border-color:var(--blueb);color:var(--blue)}.portal-tab.act-c03{background:var(--green2);border-color:var(--greenb);color:var(--green)}.pdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}.pd-c02{background:var(--red)}.pd-c01{background:var(--blue)}.pd-c03{background:var(--green)}.case-panel{display:none}.case-panel.active{display:block}.shell{padding:20px;max-width:980px;margin:0 auto}.back-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;margin:14px 20px;background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r);color:var(--t3);font-size:11px;font-weight:600;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all 0.15s}.back-btn:hover{background:var(--bg4);color:var(--t1)}.landing{min-height:calc(100vh - 54px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center}.landing h1{font-size:38px;font-weight:700;color:var(--t1);margin-bottom:8px;line-height:1.2}.landing h1 span{color:var(--blue)}.landing .tagline{font-size:13px;color:var(--t2);margin-bottom:44px;max-width:500px;line-height:1.7}.case-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:880px;margin-bottom:44px}.case-card{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:24px 20px;cursor:pointer;transition:all 0.2s;text-align:left;position:relative;overflow:hidden}.case-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}.cc02::before{background:var(--red)}.cc01::before{background:var(--blue)}.cc03::before{background:var(--green)}.case-card:hover{transform:translateY(-3px);border-color:var(--b2)}.cc-pill{font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:12px;letter-spacing:0.5px}.cc02 .cc-pill{background:var(--red2);color:var(--red);border:1px solid var(--redb)}.cc01 .cc-pill{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb)}.cc03 .cc-pill{background:var(--green2);color:var(--green);border:1px solid var(--greenb)}.case-card h3{font-size:16px;font-weight:700;color:var(--t1);margin-bottom:4px}.cc-sub{font-size:10px;color:var(--t3);margin-bottom:10px}.case-card p{font-size:11px;color:var(--t2);line-height:1.6;margin-bottom:16px}.cc-arrow{position:absolute;bottom:16px;right:16px;font-size:18px;color:var(--t3);transition:color 0.2s}.case-card:hover .cc-arrow{color:var(--t1)}.land-quote{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:18px 26px;max-width:580px;margin-bottom:28px}.land-quote .q1{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:4px}.land-quote .q2{font-size:14px;color:var(--green)}.land-footer{font-size:10px;color:var(--t3);font-style:italic}
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0C10;--bg3:#161B24;--bg4:#1E2536;--bg5:#222C3C;
+  --b1:rgba(255,255,255,0.07);--b2:rgba(255,255,255,0.14);--b3:rgba(255,255,255,0.25);
+  --t1:#F0F4FF;--t2:#BDC7E0;--t3:#7A8499;--t4:#4A5568;
+  --blue:#4D9EFF;--blue2:rgba(77,158,255,0.12);--blueb:rgba(77,158,255,0.35);
+  --green:#2DD4A0;--green2:rgba(45,212,160,0.1);--greenb:rgba(45,212,160,0.35);
+  --red:#FF5E5E;--red2:rgba(255,94,94,0.1);--redb:rgba(255,94,94,0.35);
+  --amber:#FFB547;--amber2:rgba(255,181,71,0.1);--amberb:rgba(255,181,71,0.35);
+  --purple:#A78BFA;--purple2:rgba(167,139,250,0.1);
+  --r:8px;--r2:12px;--r3:16px;
+}
+html,body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh}
+.shell{padding:20px;max-width:980px;margin:0 auto}
+
+/* HDR */
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--b1);gap:12px}
+.hdr h1{font-size:15px;font-weight:700;color:var(--t1);letter-spacing:-0.2px}
+.hdr p{font-size:11px;color:var(--t3);margin-top:3px}
+.brow{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid}
+.bb{color:var(--blue);border-color:var(--blueb);background:var(--blue2)}
+.bg{color:var(--green);border-color:var(--greenb);background:var(--green2)}
+.ba{color:var(--amber);border-color:var(--amberb);background:var(--amber2)}
+
+/* BRIDGE */
+.bridge{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--r);margin-bottom:14px;background:linear-gradient(135deg,var(--purple2),var(--blue2));border:1px solid rgba(167,139,250,0.25);font-size:12px;color:var(--t2);line-height:1.55}
+.bridge strong{color:var(--purple)}
+
+/* CTRL BAR */
+.ctrl-bar{display:flex;align-items:center;gap:6px;margin-bottom:12px;background:var(--bg3);padding:6px 10px;border-radius:var(--r2);border:1px solid var(--b2);flex-wrap:wrap}
+.ctrl-label{font-size:11px;color:var(--t3);font-weight:600;white-space:nowrap}
+.ctrl-div{width:1px;height:18px;background:var(--b2);margin:0 3px;flex-shrink:0}
+.ctrl-info{font-size:11px;color:var(--t3);margin-left:auto}
+
+/* BUTTONS */
+button.pb,button.tb{padding:5px 13px;border-radius:var(--r);background-color:#F2EFE8!important;border:1px solid #C8C4BB!important;cursor:pointer;font-size:12px;font-weight:600;color:#111!important;font-family:'DM Sans',sans-serif;transition:all 0.15s;white-space:nowrap}
+button.pb:hover,button.tb:hover{background-color:#fff!important;border-color:#AAA!important}
+button.pb.on{background-color:#4D9EFF!important;border-color:#4D9EFF!important;color:#fff!important}
+button.tb.on{background-color:#4D9EFF!important;border-color:#4D9EFF!important;color:#fff!important}
+
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--bg3);padding:4px;border-radius:var(--r2);border:1px solid var(--b1)}
+button.tab{flex:1;padding:8px 4px;border-radius:var(--r);background-color:#F2EFE8!important;border:1px solid #C8C4BB!important;cursor:pointer;font-size:11px;font-weight:600;color:#111!important;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center;line-height:1.3}
+button.tab:hover{background-color:#fff!important;border-color:#AAA!important}
+button.tab.on{background-color:#4D9EFF!important;border-color:#4D9EFF!important;color:#fff!important}
+
+.sec{display:none;animation:fi 0.18s ease}.sec.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* KPI CARDS WITH SPARKLINE */
+.kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.kgrid-3{grid-template-columns:repeat(3,1fr)}
+.kgrid-2{grid-template-columns:repeat(2,1fr)}
+.kcard{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:12px 14px;position:relative;overflow:hidden}
+.kcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--r2) var(--r2) 0 0}
+.kcard.kb::before{background:linear-gradient(90deg,var(--blue),transparent)}
+.kcard.kg::before{background:linear-gradient(90deg,var(--green),transparent)}
+.kcard.kr::before{background:linear-gradient(90deg,var(--red),transparent)}
+.kcard.ka::before{background:linear-gradient(90deg,var(--amber),transparent)}
+.kcard.kp::before{background:linear-gradient(90deg,var(--purple),transparent)}
+.semaforo{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%}
+.s-g{background:var(--green);box-shadow:0 0 5px rgba(45,212,160,0.5)}
+.s-a{background:var(--amber);box-shadow:0 0 5px rgba(255,181,71,0.5)}
+.s-r{background:var(--red);box-shadow:0 0 5px rgba(255,94,94,0.5)}
+.kl{font-size:10px;color:var(--t3);margin-bottom:4px;padding-right:16px;line-height:1.3}
+.kv{font-size:20px;font-weight:700;letter-spacing:-0.5px;font-family:'DM Mono',monospace}
+.ks{font-size:10px;margin-top:3px}
+.km{font-size:10px;margin-top:2px;color:var(--t3)}
+.sparkline-wrap{height:36px;margin-top:6px;position:relative}
+.up{color:var(--green)}.dn{color:var(--red)}.nu{color:var(--t3)}.al{color:var(--amber)}
+
+/* CARDS */
+.card{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:14px 16px;margin-bottom:10px}
+.ct{font-size:10px;font-weight:700;color:var(--t3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.ct-note{font-size:10px;color:var(--amber);font-weight:500;text-transform:none;letter-spacing:0}
+.cw{position:relative;width:100%}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{padding:7px 8px;color:var(--t3);border-bottom:1px solid var(--b1);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:0.4px}
+.tbl td{padding:8px 8px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--t1);transition:all 0.2s}
+.tbl tr:hover td{background:rgba(255,255,255,0.025)}
+.tbl tr:last-child td{border-bottom:none;font-weight:600;background:rgba(255,255,255,0.03)}
+.r{text-align:right}.c{text-align:center}
+
+/* CHIPS */
+.chip{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;font-family:'DM Mono',monospace}
+.cu{background:var(--green2);color:var(--green);border:1px solid var(--greenb)}
+.cd{background:var(--red2);color:var(--red);border:1px solid var(--redb)}
+.cn{background:var(--bg4);color:var(--t2);border:1px solid var(--b2)}
+.ca{background:var(--amber2);color:var(--amber);border:1px solid var(--amberb)}
+.cp{background:var(--purple2);color:var(--purple);border:1px solid rgba(167,139,250,0.35)}
+
+/* ALERTS */
+.ab{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;border-radius:var(--r);margin-bottom:10px;font-size:11px;line-height:1.6}
+.ab-r{background:var(--red2);border:1px solid var(--redb);color:var(--red)}
+.ab-a{background:var(--amber2);border:1px solid var(--amberb);color:var(--amber)}
+.ab-g{background:var(--green2);border:1px solid var(--greenb);color:var(--green)}
+.ab-p{background:var(--purple2);border:1px solid rgba(167,139,250,0.3);color:var(--purple)}
+.ab-b{background:var(--blue2);border:1px solid var(--blueb);color:var(--blue)}
+
+/* INSIGHT BOX */
+.ins{padding:10px 14px;border-left:3px solid var(--blue);background:var(--blue2);border-radius:0 var(--r) var(--r) 0;font-size:12px;color:var(--t2);line-height:1.6;margin:8px 0}
+.ins strong{color:var(--t1)}
+.ins-a{border-left-color:var(--amber);background:var(--amber2)}
+.ins-r{border-left-color:var(--red);background:var(--red2)}
+.ins-p{border-left-color:var(--purple);background:var(--purple2)}
+
+/* WATERFALL */
+.wf-container{padding:4px 0}
+.wf-row{display:flex;align-items:center;margin-bottom:6px;gap:8px}
+.wf-label{font-size:11px;color:var(--t2);width:140px;flex-shrink:0;text-align:right}
+.wf-bar-track{flex:1;background:var(--bg4);border-radius:4px;height:28px;position:relative;overflow:visible}
+.wf-bar{position:absolute;height:28px;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap;transition:width 0.4s ease}
+.wf-val{font-size:11px;font-family:'DM Mono',monospace;color:var(--t2);width:70px;flex-shrink:0;text-align:right}
+.wf-pct{font-size:10px;color:var(--t3);width:40px;flex-shrink:0;text-align:right}
+.wf-divider{border:none;border-top:1px solid var(--b1);margin:8px 0}
+
+/* LOLLIPOP */
+.lollipop-row{display:flex;align-items:center;margin-bottom:10px;gap:8px}
+.ll-label{font-size:12px;color:var(--t2);width:120px;flex-shrink:0}
+.ll-track{flex:1;position:relative;height:20px;display:flex;align-items:center}
+.ll-line{position:absolute;height:2px;top:50%;transform:translateY(-50%);border-radius:2px}
+.ll-dot{position:absolute;width:12px;height:12px;border-radius:50%;top:50%;transform:translateY(-50%);border:2px solid var(--bg)}
+.ll-val{font-size:11px;font-family:'DM Mono',monospace;font-weight:600;margin-left:6px;flex-shrink:0}
+
+/* BULLET CHART */
+.bullet-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.bl-label{font-size:11px;color:var(--t2);width:150px;flex-shrink:0}
+.bl-track{flex:1;background:var(--bg4);border-radius:4px;height:20px;position:relative;overflow:hidden}
+.bl-range{position:absolute;height:100%;border-radius:4px;background:rgba(255,255,255,0.06)}
+.bl-fill{position:absolute;height:100%;border-radius:4px}
+.bl-target{position:absolute;width:2px;height:28px;top:-4px;background:var(--t1);border-radius:2px}
+.bl-val{font-size:11px;font-family:'DM Mono',monospace;font-weight:600;width:50px;text-align:right;flex-shrink:0}
+.bl-status{font-size:10px;width:60px;flex-shrink:0;text-align:right}
+
+/* HYPOTHESIS CARDS */
+.hyp-card{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;transition:border-color 0.2s}
+.hyp-card:hover{border-color:var(--b2)}
+.hyp-num{font-size:22px;font-weight:700;font-family:'DM Mono',monospace;flex-shrink:0;width:32px}
+.hyp-body{flex:1}
+.hyp-title{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:4px}
+.hyp-desc{font-size:11px;color:var(--t2);line-height:1.55}
+.hyp-status{flex-shrink:0;align-self:center}
+
+/* MOVEMENT CARDS */
+.mov-card{display:grid;grid-template-columns:40px 1fr;gap:10px;background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:12px 14px;margin-bottom:8px;transition:border-color 0.2s}
+.mov-card:hover{border-color:var(--b2)}
+.mov-num{font-size:24px;font-weight:700;font-family:'DM Mono',monospace}
+.mov-title{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:4px}
+.mov-desc{font-size:11px;color:var(--t2);line-height:1.55}
+
+/* PROV CARDS */
+.prov-card{padding:10px 14px;border-left:3px solid;border-radius:0 var(--r) var(--r) 0;margin-bottom:8px;font-size:12px;line-height:1.55}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,var(--blue2),var(--purple2));border:1px solid var(--blueb);border-radius:var(--r2);padding:16px 18px;margin-top:12px}
+.cta-box h3{font-size:14px;font-weight:700;color:var(--t1);margin-bottom:6px}
+.cta-box p{font-size:12px;color:var(--t2);line-height:1.6}
+
+/* P&L TABLE */
+.pl-head{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0;margin-bottom:6px}
+.plh-empty{}
+.plh-b{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb);font-size:11px;font-weight:700;text-align:center;padding:6px 4px;border-radius:var(--r)}
+.plh-a{background:var(--amber2);color:var(--amber);border:1px solid var(--amberb);font-size:11px;font-weight:700;text-align:center;padding:6px 4px;border-radius:var(--r)}
+.plh-g{background:rgba(255,255,255,0.04);color:var(--t2);border:1px solid var(--b2);font-size:11px;font-weight:700;text-align:center;padding:6px 4px;border-radius:var(--r)}
+.pl-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:center;font-size:12px}
+.pl-row.tot{font-weight:700;font-size:13px;color:var(--t1);border-top:1px solid var(--b1);border-bottom:none;padding-top:8px;margin-top:2px}
+.pl-row.sub .pl-label{padding-left:14px;font-size:11px;color:var(--t3)}
+.pl-label{color:var(--t2)}
+.pl-val{text-align:right;font-family:'DM Mono',monospace;font-size:12px;color:var(--t2)}
+.pl-val.vb{color:var(--blue);font-weight:700}
+.pl-val.va{color:var(--amber);font-weight:700}
+.pl-val.vg{color:var(--t1);font-weight:700}
+.pl-val.vneg{color:var(--red)}
+.prov-note{font-size:10px;color:var(--t3);margin-top:8px;padding:8px 10px;background:var(--bg);border-radius:var(--r);border:1px solid var(--b1);line-height:1.6}
+
+/* LEGEND */
+.leg{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--t2);margin-bottom:10px}
+.ld{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+
+/* GUIDE */
+.guide-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r2);cursor:pointer;margin-top:16px;transition:border-color 0.15s}
+.guide-toggle:hover{border-color:var(--b3)}
+.guide-toggle h3{font-size:13px;font-weight:600;color:var(--t1)}
+.guide-toggle span{font-size:11px;color:var(--t3)}
+.guide-body{display:none;background:var(--bg3);border:1px solid var(--b1);border-top:none;border-radius:0 0 var(--r2) var(--r2);padding:16px}
+.guide-body.open{display:block}
+.gtab{margin-bottom:18px}
+.gtab-title{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--b1)}
+.gm{margin-bottom:8px;padding:9px 12px;background:var(--bg4);border-radius:var(--r);border-left:3px solid}
+.gm.ok{border-left-color:var(--green)}
+.gm.warn{border-left-color:var(--amber)}
+.gm.crit{border-left-color:var(--red)}
+.gm.info{border-left-color:var(--blue)}
+.gm-name{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:4px}
+.gm-desc{font-size:11px;color:var(--t2);line-height:1.6}
+.gm-src{font-size:10px;color:var(--t3);margin-top:4px}
+
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0C10;--bg2:#0F1217;--bg3:#161B24;--bg4:#1E2536;
+  --b1:rgba(255,255,255,0.08);--b2:rgba(255,255,255,0.15);--b3:rgba(255,255,255,0.25);
+  --t1:#F0F4FF;--t2:#BDC7E0;--t3:#7A8499;
+  --blue:#4D9EFF;--blue2:rgba(77,158,255,0.15);--blueb:rgba(77,158,255,0.4);
+  --green:#2DD4A0;--green2:rgba(45,212,160,0.12);--greenb:rgba(45,212,160,0.4);
+  --red:#FF6060;--red2:rgba(255,96,96,0.12);
+  --amber:#FFB547;--amber2:rgba(255,181,71,0.12);
+  --purple:#A78BFA;--purple2:rgba(167,139,250,0.12);
+  --r:8px;--r2:12px;
+}
+html,body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh}
+.shell{padding:20px;max-width:960px;margin:0 auto}
+
+/* HEADER */
+.hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--b1);gap:12px}
+.hdr-left h1{font-size:16px;font-weight:600;color:var(--t1)}
+.hdr-left p{font-size:11px;color:var(--t3);margin-top:3px}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.brow{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid}
+.bb{color:var(--blue);border-color:var(--blueb);background:var(--blue2)}
+.bg{color:var(--green);border-color:var(--greenb);background:var(--green2)}
+.note{font-size:10px;color:var(--amber);background:var(--amber2);border:1px solid rgba(255,181,71,0.3);padding:3px 8px;border-radius:4px}
+
+/* CASE 02 BRIDGE */
+.c02{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--r);margin-bottom:14px;background:linear-gradient(135deg,rgba(167,139,250,0.12),rgba(77,158,255,0.1));border:1px solid rgba(167,139,250,0.35);font-size:12px;color:var(--t2);line-height:1.5}
+.c02 strong{color:var(--purple)}
+
+/* CONTROL BAR */
+.ctrl-bar{display:flex;align-items:center;gap:6px;margin-bottom:12px;background:var(--bg3);padding:7px 10px;border-radius:var(--r2);border:1px solid var(--b2);flex-wrap:wrap}
+.ctrl-label{font-size:11px;color:var(--t3);font-weight:600;white-space:nowrap}
+.ctrl-div{width:1px;height:20px;background:var(--b2);margin:0 4px;flex-shrink:0}
+.ctrl-info{font-size:11px;color:var(--t3);margin-left:auto}
+
+/* ALL BUTTONS */
+button.pb,button.cb,button.vb{
+  padding:6px 14px;border-radius:var(--r);
+  background-color:#F2EFE8 !important;border:1px solid #C8C4BB !important;
+  cursor:pointer;font-size:12px;font-weight:600;color:#111 !important;
+  font-family:'DM Sans',sans-serif;transition:all 0.15s;white-space:nowrap;
+}
+button.pb:hover,button.cb:hover,button.vb:hover{background-color:#FFF !important;border-color:#AAA !important}
+button.pb.on{background-color:#4D9EFF !important;border-color:#4D9EFF !important;color:#FFF !important}
+button.cb.on-yoy{background-color:#4D9EFF !important;border-color:#4D9EFF !important;color:#FFF !important}
+button.cb.on-mom{background-color:#2DD4A0 !important;border-color:#2DD4A0 !important;color:#FFF !important}
+button.cb.on-meta{background-color:#A78BFA !important;border-color:#A78BFA !important;color:#FFF !important}
+button.vb.on{background-color:#FFB547 !important;border-color:#FFB547 !important;color:#111 !important}
+
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--bg3);padding:4px;border-radius:var(--r2);border:1px solid var(--b1)}
+button.tab{flex:1;padding:8px 4px;border-radius:var(--r);background-color:#F2EFE8 !important;border:1px solid #C8C4BB !important;cursor:pointer;font-size:11px;font-weight:600;color:#111 !important;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center;line-height:1.3}
+button.tab:hover{background-color:#FFF !important;border-color:#AAA !important}
+button.tab.on{background-color:#4D9EFF !important;border-color:#4D9EFF !important;color:#FFF !important}
+
+.sec{display:none;animation:fi 0.18s ease}.sec.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* KPI CARDS */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.kpis-3{grid-template-columns:repeat(3,1fr)}
+.kpis-5{grid-template-columns:repeat(5,1fr)}
+.kpi{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:11px 13px;position:relative;overflow:hidden;transition:all 0.25s}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--r2) var(--r2) 0 0}
+.kpi.kb::before{background:linear-gradient(90deg,var(--blue),transparent)}
+.kpi.kg::before{background:linear-gradient(90deg,var(--green),transparent)}
+.kpi.kr::before{background:linear-gradient(90deg,var(--red),transparent)}
+.kpi.ka::before{background:linear-gradient(90deg,var(--amber),transparent)}
+.kpi.kp::before{background:linear-gradient(90deg,var(--purple),transparent)}
+
+/* SEMÁFORO */
+.semaforo{position:absolute;top:8px;right:8px;width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,0.15)}
+.s-green{background:#2DD4A0;box-shadow:0 0 6px rgba(45,212,160,0.6)}
+.s-amber{background:#FFB547;box-shadow:0 0 6px rgba(255,181,71,0.6)}
+.s-red{background:#FF6060;box-shadow:0 0 6px rgba(255,96,96,0.6)}
+
+.kl{font-size:10px;color:var(--t3);margin-bottom:5px;line-height:1.3;padding-right:16px}
+.kv{font-size:19px;font-weight:600;letter-spacing:-0.5px;font-family:'DM Mono',monospace;transition:all 0.25s}
+.ks{font-size:10px;margin-top:3px;transition:all 0.25s}
+.km{font-size:10px;margin-top:2px;color:var(--t3)}
+.up{color:var(--green)}.dn{color:var(--red)}.nu{color:var(--t3)}.al{color:var(--amber)}
+
+/* CARDS */
+.card{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:14px 16px;margin-bottom:10px}
+.ct{font-size:10px;font-weight:600;color:var(--t3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.7px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.ct-note{font-size:10px;color:var(--amber);font-weight:500;text-transform:none;letter-spacing:0}
+.mode-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;margin-left:6px}
+.mt-yoy{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb)}
+.mt-mom{background:var(--green2);color:var(--green);border:1px solid var(--greenb)}
+.mt-meta{background:var(--purple2);color:var(--purple);border:1px solid rgba(167,139,250,0.4)}
+.cw{position:relative;width:100%}
+
+/* VIAÇÃO FILTER BAR */
+.via-bar{display:flex;align-items:center;gap:6px;margin-bottom:10px;padding:6px 10px;background:var(--bg4);border-radius:var(--r);border:1px solid var(--b1)}
+.via-label{font-size:11px;color:var(--t3);font-weight:600}
+.via-compare{display:none}
+.via-compare.on{display:block}
+
+/* COMPARE GRID */
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cmp-header{padding:6px 10px;border-radius:var(--r);font-size:11px;font-weight:700;text-align:center}
+.cmp-vc{background:rgba(255,181,71,0.15);color:var(--amber);border:1px solid rgba(255,181,71,0.3)}
+.cmp-gr{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb)}
+
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{padding:6px 8px;color:var(--t3);border-bottom:1px solid var(--b1);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:0.4px}
+.tbl td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--t1);transition:all 0.2s}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.tbl tr:last-child td{border-bottom:none;font-weight:600;background:rgba(255,255,255,0.03)}
+.r{text-align:right}.c{text-align:center}
+
+/* CHIPS */
+.chip{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600;font-family:'DM Mono',monospace}
+.cu{background:var(--green2);color:var(--green);border:1px solid var(--greenb)}
+.cd{background:var(--red2);color:var(--red);border:1px solid rgba(255,96,96,0.35)}
+.cn{background:var(--bg4);color:var(--t2);border:1px solid var(--b2)}
+.ca{background:var(--amber2);color:var(--amber);border:1px solid rgba(255,181,71,0.35)}
+.cp{background:var(--purple2);color:var(--purple);border:1px solid rgba(167,139,250,0.35)}
+
+/* ALERTS */
+.ab{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:var(--r);margin-bottom:10px;font-size:11px;line-height:1.5}
+.ab-r{background:var(--red2);border:1px solid rgba(255,96,96,0.3);color:var(--red)}
+.ab-a{background:var(--amber2);border:1px solid rgba(255,181,71,0.3);color:var(--amber)}
+.ab-g{background:var(--green2);border:1px solid rgba(45,212,160,0.3);color:var(--green)}
+.ab-p{background:var(--purple2);border:1px solid rgba(167,139,250,0.3);color:var(--purple)}
+
+/* PROGRESS */
+.pw{margin-bottom:7px}
+.pl{display:flex;justify-content:space-between;font-size:11px;color:var(--t2);margin-bottom:3px}
+.pb2{background:var(--bg4);border-radius:4px;height:7px;overflow:hidden}
+.pf{height:100%;border-radius:4px}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.via-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.via-card{background:var(--bg4);border:1px solid var(--b1);border-radius:var(--r);padding:8px 10px}
+.via-name{font-size:10px;color:var(--t3);margin-bottom:3px}
+.via-nps{font-size:17px;font-weight:600;font-family:'DM Mono',monospace}
+.leg{display:flex;flex-wrap:wrap;gap:10px;font-size:11px;color:var(--t2);margin-bottom:8px}
+.ld{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+
+/* GUIDE */
+.guide-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r2);cursor:pointer;margin-top:16px;transition:border-color 0.15s}
+.guide-toggle:hover{border-color:var(--b3)}
+.guide-toggle h3{font-size:13px;font-weight:600;color:var(--t1)}
+.guide-toggle span{font-size:11px;color:var(--t3)}
+.guide-body{display:none;background:var(--bg3);border:1px solid var(--b1);border-top:none;border-radius:0 0 var(--r2) var(--r2);padding:16px}
+.guide-body.open{display:block}
+.gtab{margin-bottom:18px}
+.gtab-title{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--b1)}
+.gm{margin-bottom:8px;padding:9px 11px;background:var(--bg4);border-radius:var(--r);border-left:3px solid}
+.gm.ok{border-left-color:var(--green)}
+.gm.warn{border-left-color:var(--amber)}
+.gm.crit{border-left-color:var(--red)}
+.gm.info{border-left-color:var(--blue)}
+.gm-name{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.gm-desc{font-size:11px;color:var(--t2);line-height:1.6}
+.gm-src{font-size:10px;color:var(--t3);margin-top:4px}
+
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0C10;--bg3:#161B24;--bg4:#1E2536;
+  --b1:rgba(255,255,255,0.07);--b2:rgba(255,255,255,0.14);--b3:rgba(255,255,255,0.28);
+  --t1:#F0F4FF;--t2:#BDC7E0;--t3:#7A8499;
+  --blue:#4D9EFF;--blue2:rgba(77,158,255,0.12);--blueb:rgba(77,158,255,0.35);
+  --green:#2DD4A0;--green2:rgba(45,212,160,0.10);--greenb:rgba(45,212,160,0.35);
+  --red:#FF5E5E;--red2:rgba(255,94,94,0.10);--redb:rgba(255,94,94,0.35);
+  --amber:#FFB547;--amber2:rgba(255,181,71,0.10);--amberb:rgba(255,181,71,0.35);
+  --purple:#A78BFA;--purple2:rgba(167,139,250,0.10);
+  --r:8px;--r2:12px;
+}
+html,body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh}
+.shell{padding:20px;max-width:980px;margin:0 auto}
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--b1);gap:12px}
+.hdr h1{font-size:15px;font-weight:700;color:var(--t1)}.hdr p{font-size:11px;color:var(--t3);margin-top:3px}
+.brow{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid}
+.bb{color:var(--blue);border-color:var(--blueb);background:var(--blue2)}
+.bg{color:var(--green);border-color:var(--greenb);background:var(--green2)}
+.ba{color:var(--amber);border-color:var(--amberb);background:var(--amber2)}
+.bp{color:var(--purple);border-color:rgba(167,139,250,0.4);background:var(--purple2)}
+.bridge{padding:10px 14px;border-radius:var(--r);margin-bottom:14px;background:linear-gradient(135deg,var(--green2),var(--blue2));border:1px solid rgba(45,212,160,0.25);font-size:12px;color:var(--t2);line-height:1.55}
+.bridge strong{color:var(--green)}
+button.tab{flex:1;padding:8px 4px;border-radius:var(--r);background-color:#F2EFE8!important;border:1px solid #C8C4BB!important;cursor:pointer;font-size:11px;font-weight:600;color:#111!important;font-family:'DM Sans',sans-serif;transition:all 0.15s;text-align:center;line-height:1.3}
+button.tab:hover{background-color:#fff!important;border-color:#AAA!important}
+button.tab.on{background-color:#4D9EFF!important;border-color:#4D9EFF!important;color:#fff!important}
+.tabs{display:flex;gap:4px;margin-bottom:14px;background:var(--bg3);padding:4px;border-radius:var(--r2);border:1px solid var(--b1)}
+.sec{display:none;animation:fi 0.18s ease}.sec.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.card{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:14px 16px;margin-bottom:10px}
+.ct{font-size:10px;font-weight:700;color:var(--t3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.ct-note{font-size:10px;color:var(--amber);font-weight:500;text-transform:none;letter-spacing:0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{padding:7px 8px;color:var(--t3);border-bottom:1px solid var(--b1);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:0.4px}
+.tbl td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--t1);font-size:12px}
+.tbl tr:hover td{background:rgba(255,255,255,0.02)}
+.tbl tr:last-child td{border-bottom:none}
+.chip{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;font-family:'DM Mono',monospace}
+.cu{background:var(--green2);color:var(--green);border:1px solid var(--greenb)}
+.cn{background:var(--bg4);color:var(--t2);border:1px solid var(--b2)}
+.ca{background:var(--amber2);color:var(--amber);border:1px solid var(--amberb)}
+.cp{background:var(--purple2);color:var(--purple);border:1px solid rgba(167,139,250,0.35)}
+.cb{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb)}
+.cd{background:var(--red2);color:var(--red);border:1px solid var(--redb)}
+.ab{padding:9px 12px;border-radius:var(--r);margin-bottom:10px;font-size:11px;line-height:1.6}
+.ab-g{background:var(--green2);border:1px solid var(--greenb);color:var(--green)}
+.ab-a{background:var(--amber2);border:1px solid var(--amberb);color:var(--amber)}
+.ab-b{background:var(--blue2);border:1px solid var(--blueb);color:var(--blue)}
+.ab-p{background:var(--purple2);border:1px solid rgba(167,139,250,0.3);color:var(--purple)}
+.ins{padding:10px 14px;border-left:3px solid var(--blue);background:var(--blue2);border-radius:0 var(--r) var(--r) 0;font-size:12px;color:var(--t2);line-height:1.6;margin:8px 0}
+.ins strong{color:var(--t1)}.ins-g{border-left-color:var(--green);background:var(--green2)}.ins-a{border-left-color:var(--amber);background:var(--amber2)}.ins-p{border-left-color:var(--purple);background:var(--purple2)}
+.kgrid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.kcard{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r2);padding:12px 14px;position:relative;overflow:hidden}
+.kcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--r2) var(--r2) 0 0}
+.kcard.kb::before{background:linear-gradient(90deg,var(--blue),transparent)}
+.kcard.kg::before{background:linear-gradient(90deg,var(--green),transparent)}
+.kcard.kp::before{background:linear-gradient(90deg,var(--purple),transparent)}
+.kl{font-size:10px;color:var(--t3);margin-bottom:4px;line-height:1.3}
+.kv{font-size:19px;font-weight:700;letter-spacing:-0.5px;font-family:'DM Mono',monospace}
+.ks{font-size:10px;margin-top:3px}.km{font-size:10px;margin-top:2px;color:var(--t3)}
+.up{color:var(--green)}.al{color:var(--amber)}
+/* TIMELINE */
+.tl-row{display:grid;grid-template-columns:70px 1fr 130px;align-items:stretch;margin-bottom:3px;min-height:40px}
+.tl-sem{font-size:10px;color:var(--t3);padding:9px 10px 9px 0;display:flex;align-items:center;border-right:1px solid var(--b1)}
+.tl-body{padding:8px 12px;background:var(--bg3);border-bottom:1px solid rgba(255,255,255,0.03)}
+.tl-body h4{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.tl-body p{font-size:10px;color:var(--t2);line-height:1.5}
+.tl-del{padding:8px 10px;font-size:10px;color:var(--t3);border-bottom:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;line-height:1.4}
+.tl-row:last-child .tl-body,.tl-row:last-child .tl-del{border-bottom:none}
+.tl-qw{grid-column:1/-1;background:linear-gradient(135deg,var(--green2),var(--blue2));border:1px solid rgba(45,212,160,0.25);border-radius:var(--r);padding:9px 12px;margin:6px 0;font-size:11px;color:var(--green)}
+.tl-qw strong{color:var(--t1)}
+/* KANBAN */
+.kanban{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;align-items:start}
+.kb-col-head{font-size:11px;font-weight:700;padding:8px 12px;border-radius:var(--r);margin-bottom:8px;text-align:center}
+.kb-f1{background:var(--green2);color:var(--green);border:1px solid var(--greenb)}
+.kb-f2{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb)}
+.kb-f3{background:var(--purple2);color:var(--purple);border:1px solid rgba(167,139,250,0.4)}
+.kb-card{background:var(--bg3);border:1px solid var(--b1);border-radius:var(--r);padding:10px 12px;margin-bottom:6px;cursor:pointer;transition:border-color 0.15s;position:relative}
+.kb-card:hover{border-color:var(--b3)}
+.kb-card.done{opacity:0.6}
+.kb-week{font-size:9px;color:var(--t3);margin-bottom:4px}
+.kb-title{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px;line-height:1.4;padding-right:16px}
+.kb-sub{font-size:10px;color:var(--t2);line-height:1.4;margin-bottom:6px}
+.kb-tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+.t-c02{background:var(--red2);color:var(--red);border:1px solid var(--redb)}
+.t-c01{background:var(--blue2);color:var(--blue);border:1px solid var(--blueb)}
+.kb-status{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%}
+.s-plan{background:var(--t3)}.s-wip{background:var(--amber)}.s-done{background:var(--green)}
+/* PROGRESS BAR */
+.kb-progress{height:4px;background:var(--bg4);border-radius:2px;margin-top:6px;overflow:hidden}
+.kb-progress-fill{height:100%;border-radius:2px;transition:width 0.3s ease,background 0.3s ease}
+/* COMPARE GRID */
+.cg{display:grid;grid-template-columns:100px 1fr 1fr;gap:1px;background:var(--b1);border-radius:var(--r);overflow:hidden}
+.cg-cell{background:var(--bg3);padding:8px 12px;font-size:12px}
+.cg-head{background:var(--bg4);font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;padding:7px 12px}
+.cg-label{background:var(--bg4);font-size:11px;font-weight:600;color:var(--t2);padding:8px 12px;display:flex;align-items:center}
+.cg-bi{color:var(--t3)}.cg-im{color:var(--blue);font-weight:600}
+/* GUIDE */
+.guide-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:var(--bg3);border:1px solid var(--b2);border-radius:var(--r2);cursor:pointer;margin-top:16px}
+.guide-toggle h3{font-size:13px;font-weight:600;color:var(--t1)}
+.guide-toggle span{font-size:11px;color:var(--t3)}
+.guide-body{display:none;background:var(--bg3);border:1px solid var(--b1);border-top:none;border-radius:0 0 var(--r2) var(--r2);padding:16px}
+.guide-body.open{display:block}
+.gtab{margin-bottom:16px}
+.gtab-title{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--b1)}
+.gm{margin-bottom:7px;padding:8px 12px;background:var(--bg4);border-radius:var(--r);border-left:3px solid}
+.gm.ok{border-left-color:var(--green)}.gm.warn{border-left-color:var(--amber)}.gm.info{border-left-color:var(--blue)}.gm.crit{border-left-color:var(--red)}
+.gm-name{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px}
+.gm-desc{font-size:11px;color:var(--t2);line-height:1.6}
+</style>
+</head><body>
+<nav class="portal-nav"><div class="portal-brand"><div class="name">Guilherme Rodrigues</div><div class="sub">Smart Travel · Grupo Guanabara · Junho 2026</div></div><div class="portal-tabs"><button class="portal-tab act-home" id="tab-home" onclick="showPortal('home')">⌂ Início</button><button class="portal-tab" id="tab-c02" onclick="showPortal('c02')"><span class="pdot pd-c02"></span>Case 02 · O Problema</button><button class="portal-tab" id="tab-c01" onclick="showPortal('c01')"><span class="pdot pd-c01"></span>Case 01 · A Solução</button><button class="portal-tab" id="tab-c03" onclick="showPortal('c03')"><span class="pdot pd-c03"></span>Case 03 · A Execução</button></div><div style="font-size:10px;color:var(--t3);white-space:nowrap;padding-left:20px">IM Digital · 3 Cases</div></nav>
+<div id="panel-home" class="case-panel active"><div class="landing"><h1>Inteligência de <span>Mercado Digital</span></h1><p class="tagline">Três cases. Um raciocínio.<br>Problema → Solução → Execução.</p><div class="case-cards"><div class="case-card cc02" onclick="showPortal('c02')"><div class="cc-pill">CASE 02</div><h3>O Problema</h3><div class="cc-sub">Viação Case — Queda de Resultados</div><p>Dois times em conflito, VP convocado. R$322k/viação/ano sem que ninguém percebesse.</p><div class="cc-arrow">→</div></div><div class="case-card cc01" onclick="showPortal('c01')"><div class="cc-pill">CASE 01</div><h3>A Solução</h3><div class="cc-sub">Report de Resultados Funcional</div><p>O sistema que detectaria o problema 3 meses antes.</p><div class="cc-arrow">→</div></div><div class="case-card cc03" onclick="showPortal('c03')"><div class="cc-pill">CASE 03</div><h3>A Execução</h3><div class="cc-sub">Primeiros 90 Dias</div><p>Como construo esse sistema em 90 dias — com entregáveis, donos e prazos.</p><div class="cc-arrow">→</div></div></div><div class="land-quote"><div class="q1">"O dado que não existe não paralisa a análise.</div><div class="q2">Ele define a primeira pergunta."</div></div><div class="land-footer">Líder de Inteligência de Mercado — Área Digital · Smart Travel / Grupo Guanabara</div></div></div>
+<div id="panel-c02" class="case-panel"><button class="back-btn" onclick="showPortal('home')">← Início</button><div class="shell"><div class="hdr">
+  <div>
+    <h1>Case 02 — Viação Case</h1>
+    <p>Inteligência de Mercado Digital · Grupo Guanabara · Análise de Performance por Canal</p>
+    <div class="brow">
+      <span class="badge bb">Dados reais da planilha</span>
+      <span class="badge bg">6 viações · Grupo</span>
+      <span class="badge ba">P&L por canal</span>
+    </div>
+  </div>
+</div>
+
+<div class="bridge">
+  <strong>🔗 Conexão Case 01:</strong>&nbsp;O report funcional do Case 01 é a resposta direta a este diagnóstico. Se o N2 do report existisse monitorando share por canal e viação, o desvio da Viação Case teria sido detectado 3–4 meses antes da reunião com o VP.
+</div>
+
+<!-- PERIOD SELECTOR -->
+<div class="ctrl-bar">
+  <span class="ctrl-label">Período:</span>
+  <button class="pb on" onclick="setPeriod_c02('ja',this)">Jan-Abr 2026</button>
+  <button class="pb" onclick="setPeriod_c02('jd',this)">Jul-Dez 2025</button>
+  <div class="ctrl-div"></div>
+  <span class="ctrl-label">Foco:</span>
+  <button class="tb on" onclick="setFocus_c02('vc',this)">Viação Case</button>
+  <button class="tb" onclick="setFocus_c02('comp',this)">Viação Case vs Grupo</button>
+  <span class="ctrl-info" id="ctrl-info-c02">Jan-Abr 2026 · Viação Case isolada</span>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="showTab_c02(this,'t1')">Visão Macro</button>
+  <button class="tab" onclick="showTab_c02(this,'t2')">Canais</button>
+  <button class="tab" onclick="showTab_c02(this,'t3')">P&L · Margem</button>
+  <button class="tab" onclick="showTab_c02(this,'t4')">Hipóteses</button>
+  <button class="tab" onclick="showTab_c02(this,'t5')">Posicionamento VP</button>
+</div>
+
+<!-- TAB 1: VISÃO MACRO -->
+<div id="t1" class="sec on">
+
+  <div class="kgrid" id="macro-kpis">
+    <div class="kcard kb">
+      <div class="semaforo s-a" title="Atenção: crescendo abaixo do grupo"></div>
+      <div class="kl">Receita Total Viação Case</div>
+      <div class="kv" id="k-rec" style="color:var(--t1)">R$2,4M</div>
+      <div class="ks" id="k-rec-s"><span class="up">+1,2% YoY</span></div>
+      <div class="km" id="k-rec-m">Grupo: +2,3% YoY</div>
+      <div class="sparkline-wrap"><canvas id="sp1" aria-label="Sparkline receita Viação Case">Tendência receita Viação Case últimos 8 meses.</canvas></div>
+    </div>
+    <div class="kcard kr">
+      <div class="semaforo s-r" title="Crítico: gap piorando"></div>
+      <div class="kl">Digital Próprio — Viação Case</div>
+      <div class="kv" id="k-dp" style="color:var(--red)">R$747k</div>
+      <div class="ks dn" id="k-dp-s">+3,2% vs grupo +10,9%</div>
+      <div class="km">Gap: -7,7pp ↑ piorando</div>
+      <div class="sparkline-wrap"><canvas id="sp2" aria-label="Sparkline digital próprio Viação Case">Tendência canal próprio Viação Case.</canvas></div>
+    </div>
+    <div class="kcard ka">
+      <div class="semaforo s-a" title="Atenção: desconto praticado"></div>
+      <div class="kl">Digital Terceiros — Viação Case</div>
+      <div class="kv" id="k-dt" style="color:var(--amber)">R$816k</div>
+      <div class="ks al" id="k-dt-s">TM R$127 vs grupo R$143</div>
+      <div class="km">Gap preço: -R$15,25/ticket</div>
+      <div class="sparkline-wrap"><canvas id="sp3" aria-label="Sparkline terceiros">Tendência terceiros.</canvas></div>
+    </div>
+    <div class="kcard kr">
+      <div class="semaforo s-r" title="Crítico: colapso duplo"></div>
+      <div class="kl">Offline — Viação Case</div>
+      <div class="kv" id="k-off" style="color:var(--red)">R$836k</div>
+      <div class="ks dn" id="k-off-s">-8,8% Vol e Preço juntos</div>
+      <div class="km">Share: 44,2% → 34,8% em 1 ano</div>
+      <div class="sparkline-wrap"><canvas id="sp4" aria-label="Sparkline offline">Tendência offline.</canvas></div>
+    </div>
+  </div>
+
+  <div class="ab ab-b">
+    <strong>Leitura macro:</strong>&nbsp;A Viação Case cresce (+1,2% YoY) mas perde ritmo vs grupo (+2,3%). O sinal mais crítico: <strong>volume estável (+0,4% entre períodos) mas TM caindo (-5,9%)</strong>. O passageiro não parou de viajar — a empresa está capturando menos por viagem.
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Crescimento YoY por canal — Viação Case vs Grupo</div>
+      <div class="leg">
+        <span><span class="ld" style="background:#FFB547"></span>Viação Case</span>
+        <span><span class="ld" style="background:#4D9EFF"></span>Grupo Total</span>
+      </div>
+      <div class="cw" style="height:200px"><canvas id="c-div" role="img" aria-label="Diverging bar Viação Case vs Grupo por canal">Comparativo YoY por canal.</canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Sazonalidade — Volume vs Preço entre semestres</div>
+      <div class="cw" style="height:200px"><canvas id="c-saz" role="img" aria-label="Sazonalidade volume e preço">Volume e TM por período.</canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Migração de share em 1 ano — onde foi a receita</div>
+    <div class="cw" style="height:160px"><canvas id="c-share" role="img" aria-label="Evolução de share por canal">Share por canal ao longo do tempo.</canvas></div>
+    <div class="ins ins-r" style="margin-top:10px"><strong>Em 12 meses:</strong> Offline perdeu 9,4pp de share. Terceiros ganhou 8,2pp. Canal próprio ficou estático. A receita está migrando silenciosamente para o canal de menor margem.</div>
+  </div>
+</div>
+
+<!-- TAB 2: CANAIS -->
+<div id="t2" class="sec">
+
+  <div class="ab ab-a">⚠ Terceiros cresceu com desconto: TM de R$127 vs grupo R$143 (gap -R$15,25/ticket). Quando o desconto cessou, o volume desacelerou imediatamente. Não é campanha — é promoção com data de validade.</div>
+
+  <div class="card">
+    <div class="ct">Decomposição: Receita = Volume × Preço
+      <span id="period-label" class="ct-note">Jan-Abr 2026 · Viação Case</span>
+    </div>
+    <table class="tbl">
+      <tr>
+        <th>Canal</th>
+        <th class="r">Receita</th>
+        <th class="r">Var. Receita</th>
+        <th class="r">Volume</th>
+        <th class="r">Var. Volume</th>
+        <th class="r">TM</th>
+        <th class="r">Var. TM</th>
+        <th class="r">Share Δ</th>
+      </tr>
+      <tr id="tr-off">
+        <td>Offline</td>
+        <td class="r" id="d-off-rec">R$836k</td>
+        <td class="r"><span class="chip cd" id="d-off-rv">-8,8%</span></td>
+        <td class="r" id="d-off-vol">8.125</td>
+        <td class="r"><span class="chip cd" id="d-off-vv">-3,8%</span></td>
+        <td class="r" id="d-off-tm">R$102,85</td>
+        <td class="r"><span class="chip cd" id="d-off-tv">-5,1%</span></td>
+        <td class="r dn" id="d-off-sh">-3,8pp</td>
+      </tr>
+      <tr id="tr-dp">
+        <td>Digital Próprio</td>
+        <td class="r" id="d-dp-rec">R$747k</td>
+        <td class="r"><span class="chip cu" id="d-dp-rv">+3,2%</span></td>
+        <td class="r" id="d-dp-vol">5.788</td>
+        <td class="r"><span class="chip cu" id="d-dp-vv">+3,7%</span></td>
+        <td class="r" id="d-dp-tm">R$129,07</td>
+        <td class="r"><span class="chip cn" id="d-dp-tv">-0,4%</span></td>
+        <td class="r up" id="d-dp-sh">+0,6pp</td>
+      </tr>
+      <tr id="tr-dt">
+        <td>Digital Terceiros</td>
+        <td class="r" id="d-dt-rec">R$816k</td>
+        <td class="r"><span class="chip cu" id="d-dt-rv">+11,6%</span></td>
+        <td class="r" id="d-dt-vol">6.406</td>
+        <td class="r"><span class="chip cu" id="d-dt-vv">+10,7%</span></td>
+        <td class="r" id="d-dt-tm">R$127,41</td>
+        <td class="r"><span class="chip cu" id="d-dt-tv">+0,8%</span></td>
+        <td class="r up" id="d-dt-sh">+3,2pp</td>
+      </tr>
+      <tr>
+        <td><strong>Total Viação Case</strong></td>
+        <td class="r" id="d-tot-rec"><strong>R$2,4M</strong></td>
+        <td class="r"><strong id="d-tot-rv">+1,2%</strong></td>
+        <td class="r" id="d-tot-vol"><strong>20.319</strong></td>
+        <td class="r"><strong id="d-tot-vv">+2,5%</strong></td>
+        <td class="r" id="d-tot-tm"><strong>R$118,06</strong></td>
+        <td class="r"><strong id="d-tot-tv">-1,3%</strong></td>
+        <td class="r">—</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Ticket médio por canal — Viação Case vs Grupo</div>
+      <div id="lollipop-container" style="padding:8px 0">
+        <!-- rendered by JS -->
+      </div>
+      <div class="ins ins-a" style="margin-top:8px"><strong>Gap crítico no Terceiros:</strong> R$127 (VC) vs R$143 (Grupo) = -R$15,25/ticket. Quem definiu essa política de preço?</div>
+    </div>
+    <div class="card">
+      <div class="ct">Volume com desconto vs sem desconto — Terceiros</div>
+      <div class="cw" style="height:195px"><canvas id="c-desc" role="img" aria-label="Volume Terceiros com e sem desconto">Volume com e sem desconto no canal terceiros.</canvas></div>
+      <div class="ins ins-a" style="margin-top:8px"><strong>Desconto cessa → volume cai imediatamente:</strong> +30,2% com desconto (Jul-Dez 25) → +10,7% sem desconto (Jan-Abr 26). Relação direta e imediata.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: P&L -->
+<div id="t3" class="sec">
+
+  <div class="kgrid kgrid-3">
+    <div class="kcard kb">
+      <div class="kl">MC2 Digital Próprio</div>
+      <div class="kv" style="color:var(--blue)">80%</div>
+      <div class="ks nu">R$598k · após mídia e CRM</div>
+      <div class="km">MC3: 80% (sem guichê)</div>
+    </div>
+    <div class="kcard ka">
+      <div class="kl">MC2 Digital Terceiros</div>
+      <div class="kv" style="color:var(--amber)">83%</div>
+      <div class="ks nu">R$677k · após comissão OTA</div>
+      <div class="km">MC3: 83% (sem guichê)</div>
+    </div>
+    <div class="kcard kr">
+      <div class="semaforo s-a" title="MC3 não inclui custos operacionais"></div>
+      <div class="kl">MC3 Offline</div>
+      <div class="kv" style="color:var(--t2)">84%</div>
+      <div class="ks al">R$702k · ⚠ sem custos op.</div>
+      <div class="km">Combustível/frota → FP&A</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Jornada de margem: Receita Bruta → MC3 por canal · Jan-Abr 2026</div>
+    <div class="cw" style="height:240px"><canvas id="c-wf" role="img" aria-label="Waterfall P&L por canal">P&L waterfall por canal.</canvas></div>
+    <div class="prov-note">★ Premissas estimadas: OTA 12% · Cancelamentos 2% · Mídia paga 8% · Plataforma 3% · Atendimento 5%/3%/2% · CRM 2% · Guichê 12%. Substituir por dados reais do financeiro/TI.</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Demonstrativo P&L completo — MC1 → MC2 → MC3 → EBITDA</div>
+    <div class="pl-head" style="gap:6px;margin-bottom:8px">
+      <div class="plh-empty"></div>
+      <div class="plh-b">Digital Próprio</div>
+      <div class="plh-a">Dig. Terceiros</div>
+      <div class="plh-g">Offline</div>
+    </div>
+    <div class="pl-row"><div class="pl-label">Receita bruta</div><div class="pl-val">R$747k</div><div class="pl-val">R$816k</div><div class="pl-val">R$836k</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Comissão OTA (12%)</div><div class="pl-val">—</div><div class="pl-val vneg">(R$98k)</div><div class="pl-val">—</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Cancelamentos (2%)</div><div class="pl-val vneg">(R$15k)</div><div class="pl-val vneg">(R$16k)</div><div class="pl-val vneg">(R$17k)</div></div>
+    <div class="pl-row tot"><div class="pl-label">= Receita Líquida</div><div class="pl-val">R$732k</div><div class="pl-val">R$702k</div><div class="pl-val">R$819k</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Mídia paga (8%)</div><div class="pl-val vneg">(R$60k)</div><div class="pl-val">—</div><div class="pl-val">—</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Plataforma digital (3%)</div><div class="pl-val vneg">(R$22k)</div><div class="pl-val">—</div><div class="pl-val">—</div></div>
+    <div class="pl-row tot"><div class="pl-label">= MC1 &nbsp;<small style="color:var(--t3);font-weight:400">87%·86%·98%</small></div><div class="pl-val vb">R$650k</div><div class="pl-val va">R$702k</div><div class="pl-val vg">R$819k</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Atendimento digital</div><div class="pl-val vneg">(R$37k)</div><div class="pl-val vneg">(R$24k)</div><div class="pl-val vneg">(R$17k)</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) CRM e automação (2%)</div><div class="pl-val vneg">(R$15k)</div><div class="pl-val">—</div><div class="pl-val">—</div></div>
+    <div class="pl-row tot"><div class="pl-label">= MC2 &nbsp;<small style="color:var(--t3);font-weight:400">80%·83%·96%</small></div><div class="pl-val vb">R$598k</div><div class="pl-val va">R$677k</div><div class="pl-val vg">R$802k</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Guichê / rodoviária (12%)</div><div class="pl-val">—</div><div class="pl-val">—</div><div class="pl-val vneg">(R$100k)</div></div>
+    <div class="pl-row tot"><div class="pl-label">= MC3 &nbsp;<small style="color:var(--t3);font-weight:400">80%·83%·84%</small></div><div class="pl-val vb">R$598k</div><div class="pl-val va">R$677k</div><div class="pl-val vg">R$702k</div></div>
+    <div class="pl-row sub"><div class="pl-label">(-) Rateio fixos TI/Infra (4%)</div><div class="pl-val vneg">(R$30k)</div><div class="pl-val vneg">(R$33k)</div><div class="pl-val vneg">(R$33k)</div></div>
+    <div class="pl-row tot"><div class="pl-label">= EBITDA Digital &nbsp;<small style="color:var(--t3);font-weight:400">76%·79%·80%</small></div><div class="pl-val vb">R$568k</div><div class="pl-val va">R$645k</div><div class="pl-val vg">R$669k</div></div>
+
+    <div class="prov-note" style="margin-top:10px">⚠ MC3 Offline (84%) aparece bem — mas os custos variáveis operacionais (combustível, mão de obra de bordo, pneus, ANTT, depreciação de frota) existem independentemente do canal de venda. São custos da rota, não do canal — pertencem ao FP&A. Quando corretamente alocados, o Offline provavelmente tem margem real inferior ao canal próprio.</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Cenário: migrar 10pp Terceiros → canal próprio · anualizado conservador</div>
+    <table class="tbl">
+      <tr><th>Componente</th><th class="r">Cálculo</th><th class="r">Valor</th></tr>
+      <tr><td>Receita total Viação Case anualizada (×3, conservador)</td><td class="r">R$2,4M × 3</td><td class="r"><span style="font-family:'DM Mono',monospace">R$7,2M/ano</span></td></tr>
+      <tr><td>Receita migrada (10%)</td><td class="r">10% do total</td><td class="r">R$720k</td></tr>
+      <tr><td>(+) Comissão evitada (12%)</td><td class="r">R$720k × 12%</td><td class="r" style="color:var(--green)">+R$86k</td></tr>
+      <tr><td>(−) Custo mídia adicional (8%)</td><td class="r">R$720k × 8%</td><td class="r" style="color:var(--red)">−R$58k</td></tr>
+      <tr><td>(−) Custo plataforma (3%)</td><td class="r">R$720k × 3%</td><td class="r" style="color:var(--red)">−R$22k</td></tr>
+      <tr><td><strong>Ganho líquido migração / viação / ano</strong></td><td class="r"></td><td class="r" style="color:var(--green);font-weight:700">+R$7k</td></tr>
+      <tr><td>(+) Corrigir gap de preço Terceiros vs grupo</td><td class="r">R$15,25 × ~19k tkt/ano</td><td class="r" style="color:var(--green);font-weight:700">+R$293k/ano</td></tr>
+      <tr><td><strong>Impacto combinado · Viação Case / ano</strong></td><td class="r"></td><td class="r" style="color:var(--blue);font-weight:700;font-size:14px">~R$300k</td></tr>
+      <tr><td><strong>Grupo × 6 viações (proporcional)</strong></td><td class="r"></td><td class="r" style="color:var(--green);font-weight:700;font-size:14px">~R$1,8M/ano</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- TAB 4: HIPÓTESES -->
+<div id="t4" class="sec">
+
+  <div class="ab ab-b">5 hipóteses construídas a partir dos dados — ou da falta deles. As 2 primeiras estão confirmadas pelos dados da planilha. As demais exigem dados adicionais para confirmar ou refutar.</div>
+
+  <div class="hyp-card">
+    <div class="hyp-num" style="color:var(--green)">01</div>
+    <div class="hyp-body">
+      <div class="hyp-title">Offline caiu por problema de malha/rota, não por falta de publicidade digital</div>
+      <div class="hyp-desc">Gap de -7pp vs grupo constante nos 2 períodos. Em Jan-Abr 26, o offline da Viação Case perdeu VOLUME (-3,8%) E PREÇO (-5,1%) simultaneamente — colapso duplo que o grupo não replicou (-1,4% vol, -0,2% TM). Responsabilidade do time comercial, não do digital.</div>
+    </div>
+    <div class="hyp-status"><span class="chip cu">Confirmada</span></div>
+  </div>
+
+  <div class="hyp-card">
+    <div class="hyp-num" style="color:var(--green)">02</div>
+    <div class="hyp-body">
+      <div class="hyp-title">Crescimento do Terceiros foi induzido por desconto temporário, não por demanda</div>
+      <div class="hyp-desc">TM caiu -4,4% enquanto volume subiu +30,2% em Jul-Dez 25. A Viação Case praticou R$130 vs grupo R$144 no mesmo canal (-R$14). Quando o desconto cessou em Jan-Abr 26, o crescimento caiu de +30% para +10,7% imediatamente. Relação causal direta.</div>
+    </div>
+    <div class="hyp-status"><span class="chip cu">Confirmada</span></div>
+  </div>
+
+  <div class="hyp-card">
+    <div class="hyp-num" style="color:var(--amber)">03</div>
+    <div class="hyp-body">
+      <div class="hyp-title">Canal próprio travado por problema de funil/UX, não por falta de orçamento de mídia</div>
+      <div class="hyp-desc">Grupo cresceu +10,9% no digital próprio no mesmo período com a mesma plataforma. Se fosse problema de budget, o grupo inteiro teria o mesmo resultado. O benchmark interno elimina a hipótese de investimento. A causa está no funil — GA4 instalado há meses e nunca consultado.</div>
+    </div>
+    <div class="hyp-status"><span class="chip ca">Forte</span></div>
+  </div>
+
+  <div class="hyp-card">
+    <div class="hyp-num" style="color:var(--t3)">04</div>
+    <div class="hyp-body">
+      <div class="hyp-title">Passageiro que saiu do offline da Viação Case migrou para Terceiros (canibalização interna)</div>
+      <div class="hyp-desc">Share offline caiu -9,4pp e Terceiros subiu +8,2pp no mesmo período — coincidência improvável. Se confirmado via CRM (cruzamento por CPF), a receita permanece no ecossistema mas a margem cai drasticamente. Precisa de dado de CRM para confirmar.</div>
+    </div>
+    <div class="hyp-status"><span class="chip cn">Hipótese</span></div>
+  </div>
+
+  <div class="hyp-card">
+    <div class="hyp-num" style="color:var(--red)">05</div>
+    <div class="hyp-body">
+      <div class="hyp-title">Há política de desconto intragrupo entre Viação Case e canal Terceiros (Clickbus)</div>
+      <div class="hyp-desc">Gap de R$15,25/ticket vs restante do grupo no mesmo canal Terceiros. O Clickbus é o maior marketplace rodoviário do Brasil. Pesquisa indica vínculo com o Grupo Guanabara. Se confirmado internamente, pode ser subsídio de canal intragrupo — transferência de margem para canal próprio do grupo.</div>
+    </div>
+    <div class="hyp-status"><span class="chip cp">Investigar</span></div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="ct">Dados ausentes que bloqueiam qualquer decisão de budget — por urgência</div>
+    <div style="padding:4px 0">
+      <div class="bullet-row">
+        <div class="bl-label">Funil GA4 (por etapa)</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:95%;background:var(--red)"></div>
+          <div class="bl-target" style="left:95%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--red)">7 dias</div>
+        <div class="bl-status"><span class="chip cd">Urgente</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 10px 158px;line-height:1.5">Sem saber onde o passageiro abandona, qualquer budget de mídia é aposta. GA4 já instalado via Tag Manager — apenas permissão de leitura.</div>
+
+      <div class="bullet-row">
+        <div class="bl-label">Política preço OTA</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:88%;background:var(--red)"></div>
+          <div class="bl-target" style="left:88%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--red)">Imediato</div>
+        <div class="bl-status"><span class="chip cd">Urgente</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 10px 158px;line-height:1.5">Desconto de R$15/ticket vs grupo. Quem autorizou? Time comercial ou digital? Isso muda completamente de lado no conflito.</div>
+
+      <div class="bullet-row">
+        <div class="bl-label">TM por rota/destino</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:70%;background:var(--amber)"></div>
+          <div class="bl-target" style="left:70%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--amber)">2 semanas</div>
+        <div class="bl-status"><span class="chip ca">Atenção</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 10px 158px;line-height:1.5">Queda de TM offline pode estar concentrada em 1-2 rotas. Generalizar é erro de diagnóstico. Query simples no BI de TI.</div>
+
+      <div class="bullet-row">
+        <div class="bl-label">Load Factor por rota</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:50%;background:var(--t4)"></div>
+          <div class="bl-target" style="left:50%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--t3)">3-4 sem.</div>
+        <div class="bl-status"><span class="chip cn">Planejado</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 10px 158px;line-height:1.5">Taxa de ocupação dos ônibus por rota (não por canal). Responde: volume offline caiu porque o ônibus está vazio, ou porque o passageiro comprou pelo Clickbus?</div>
+
+      <div class="bullet-row">
+        <div class="bl-label">Índice canibalização (CRM)</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:38%;background:var(--t4)"></div>
+          <div class="bl-target" style="left:38%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--t3)">4-6 sem.</div>
+        <div class="bl-status"><span class="chip cn">Planejado</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 4px 158px;line-height:1.5">% do crescimento de Terceiros que veio de clientes com histórico no canal próprio. Requer cruzamento por CPF no CRM.</div>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="card" style="margin-top:10px">
+    <div class="ct">Prioridade 2 — Para o diagnóstico completo (até 30 dias)</div>
+    <div style="padding:4px 0">
+      <div class="bullet-row">
+        <div class="bl-label">CAC por canal</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:72%;background:var(--amber)"></div>
+          <div class="bl-target" style="left:72%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--amber)">3 semanas</div>
+        <div class="bl-status"><span class="chip ca">Atenção</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 10px 158px;line-height:1.5">O Terceiros traz volume — mas quanto custa cada ticket via ads vs comissão? Break-even: (Investimento mídia ÷ tickets próprio) vs (comissão paga ÷ tickets Terceiros). Define onde realmente vale investir.</div>
+
+      <div class="bullet-row">
+        <div class="bl-label">Elasticidade conveniência</div>
+        <div class="bl-track">
+          <div class="bl-range" style="width:100%"></div>
+          <div class="bl-fill" style="width:65%;background:var(--amber)"></div>
+          <div class="bl-target" style="left:65%"></div>
+        </div>
+        <div class="bl-val" style="color:var(--amber)">3–4 semanas</div>
+        <div class="bl-status"><span class="chip ca">Atenção</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin:-4px 0 4px 158px;line-height:1.5">Canal próprio não cobra taxa de conveniência — isso converte recorrentes ou eles preferem o Terceiros pela facilidade de comparar concorrentes? Fonte: GA4 + CRM. Comparar perfil de comprador recorrente: canal preferido, frequência, ticket.</div>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="card" style="margin-top:10px">
+    <div class="ct">Prioridade 3 — Monitoramento contínuo (plano de 90 dias)</div>
+    <div class="g2" style="margin-bottom:8px">
+      <div style="background:var(--bg4);border:1px solid var(--b1);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--blue)">
+        <div style="font-size:11px;font-weight:700;color:var(--t1);margin-bottom:4px">LTV por segmento — Viva Fidelidade</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.55;margin-bottom:6px">Programa com +1M de usuários. LTV + churn desses clientes define onde está o valor real de recorrência — e reduz dependência de marketplaces. Fórmula: TM médio × frequência anual × anos ativos.</div>
+        <div style="font-size:10px;color:var(--t3)">Fonte: CRM + base Viva Fidelidade · <span style="color:var(--blue)">Fase 2 — semana 8</span></div>
+      </div>
+      <div style="background:var(--bg4);border:1px solid var(--b1);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--amber)">
+        <div style="font-size:11px;font-weight:700;color:var(--t1);margin-bottom:4px">Performance Viva Fidelidade por canal</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.55;margin-bottom:6px">Monitorar se acúmulo de pontos no canal próprio está reduzindo o share do Terceiros. É o principal instrumento de migração de canal sem desconto — não precisa de ads, usa o programa de fidelidade que já existe.</div>
+        <div style="font-size:10px;color:var(--t3)">Fonte: CRM · <span style="color:var(--amber)">Fase 2 — semana 7</span></div>
+      </div>
+      <div style="background:var(--bg4);border:1px solid var(--b1);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--green)">
+        <div style="font-size:11px;font-weight:700;color:var(--t1);margin-bottom:4px">Precificação dinâmica por rota</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.55;margin-bottom:6px">Diesel é o 2º maior custo operacional do setor. Alertas automáticos de distorção tarifária em rotas competitivas são essenciais para margem. Script de monitoramento de preços (Clickbus, Buser) vs tabela interna.</div>
+        <div style="font-size:10px;color:var(--t3)">Fonte: Bilhetagem + dados de custo · <span style="color:var(--green)">Fase 3 — semana 10</span></div>
+      </div>
+      <div style="background:var(--bg4);border:1px solid var(--b1);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--purple)">
+        <div style="font-size:11px;font-weight:700;color:var(--t1);margin-bottom:4px">Customer 360 — Jornada Omnichannel</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.55;margin-bottom:6px">Cliente compra no App, WhatsApp, site e guichê. Centralizar em visão única por CPF é o passo que transforma dado transacional em inteligência de fidelização. A chave de correlação é o CPF — sem ela os dados ficam em silos mesmo com ferramentas caras.</div>
+        <div style="font-size:10px;color:var(--t3)">Fonte: GA4 + CRM + Bilhetagem · <span style="color:var(--purple)">Fase 3 — semana 11</span></div>
+      </div>
+    </div>
+    <div style="font-size:10px;color:var(--t3);padding:8px 10px;background:var(--bg);border-radius:var(--r);border:1px solid var(--b1);line-height:1.6">💡 P3 não bloqueia a decisão imediata — mas define a visão de longo prazo. São os indicadores que transformam o time de IM Digital de reativo (detecta problema depois) para proativo (previne problema antes de chegar ao VP).</div>
+  </div>
+
+  <!-- ALÉM DO SOLICITADO -->
+  <div class="card" style="margin-top:10px;border-color:var(--blueb)">
+    <div class="ct" style="color:var(--blue)">★ Além do solicitado — métricas com linha direta para receita ou margem</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+      <div style="background:var(--bg4);border-radius:var(--r);padding:8px 10px;border-left:2px solid var(--blue)"><div style="font-size:11px;font-weight:600;color:var(--t1)">Ticket Médio por Canal (P&L)</div><div style="font-size:10px;color:var(--t2);margin-top:3px;line-height:1.5">Gap de R$15/ticket no Terceiros = R$293k/ano não capturados. A análise de P&L por canal foi construída do zero — nenhum dos dois times trouxe para a reunião.</div></div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:8px 10px;border-left:2px solid var(--amber)"><div style="font-size:11px;font-weight:600;color:var(--t1)">Índice de Canibalização</div><div style="font-size:10px;color:var(--t2);margin-top:3px;line-height:1.5">Quanto do crescimento de Terceiros veio de passageiros que antes compravam no canal próprio? Requer CPF como chave no CRM. Sem isso os dados ficam em silos.</div></div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:8px 10px;border-left:2px solid var(--green)"><div style="font-size:11px;font-weight:600;color:var(--t1)">Net Revenue Retention (NRR)</div><div style="font-size:10px;color:var(--t2);margin-top:3px;line-height:1.5">Crescimento orgânico sem novos clientes. Se a base ativa compra mais e com maior frequência, o canal próprio cresce sem aumentar budget de aquisição.</div></div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:8px 10px;border-left:2px solid var(--purple)"><div style="font-size:11px;font-weight:600;color:var(--t1)">Pergunta do Clickbus</div><div style="font-size:10px;color:var(--t2);margin-top:3px;line-height:1.5">Pesquisa indica vínculo do Clickbus com o Grupo Guanabara. Gap de R$15/ticket pode ser subsídio intragrupo — não é acusação, é due diligence antes da reunião com o VP.</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TAB 5: POSICIONAMENTO VP -->
+<div id="t5" class="sec">
+
+  <div class="ab ab-p" style="margin-bottom:14px">Discurso estruturado em 5 movimentos — cada um sustentado por dado específico. O objetivo não é "ganhar" o conflito com o time comercial: é transformar a narrativa de "quem tem razão" para "qual é o diagnóstico correto".</div>
+
+  <div class="mov-card">
+    <div class="mov-num" style="color:var(--t2)">01</div>
+    <div>
+      <div class="mov-title">Separar o conflito em partes diagnosticáveis</div>
+      <div class="mov-desc">Os dois times estão debatendo a causa errada. Os dados mostram 3 problemas com 3 donos distintos. Nenhum lado tem razão completa — e apresentar isso com dados é a postura que demonstra maturidade analítica.</div>
+    </div>
+  </div>
+
+  <div class="mov-card">
+    <div class="mov-num" style="color:var(--red)">02</div>
+    <div>
+      <div class="mov-title">Offline é problema comercial — os dados provam</div>
+      <div class="mov-desc">Viação Case perdeu 9,4pp de share offline em 1 ano. Gap vs grupo: -7pp constante nos dois períodos. Em Jan-Abr 26: volume E preço caindo simultaneamente. Isso é colapso de canal físico — malha, frequência, concorrência regional. <strong>Não tem relação com publicidade digital.</strong></div>
+    </div>
+  </div>
+
+  <div class="mov-card">
+    <div class="mov-num" style="color:var(--amber)">03</div>
+    <div>
+      <div class="mov-title">Terceiros cresceu com desconto que o próprio grupo não pratica</div>
+      <div class="mov-desc">+30% em volume com TM -4,4%. Viação Case vende R$15 mais barato que o grupo no mesmo canal. <strong>Quem autorizou essa política de preço?</strong> Se foi o comercial, a acusação muda de lado. Se foi o digital, é campanha com custo não mapeado no P&L.</div>
+    </div>
+  </div>
+
+  <div class="mov-card">
+    <div class="mov-num" style="color:var(--blue)">04</div>
+    <div>
+      <div class="mov-title">Digital próprio não esgotou — o benchmark interno prova</div>
+      <div class="mov-desc">Grupo cresceu +10,9% no canal próprio. Viação Case cresceu +3,2%. <strong>Se o canal fosse esgotado, o grupo inteiro teria o mesmo resultado.</strong> O benchmark interno derruba o argumento. O problema é específico desta viação — e a causa está no funil do GA4, que nunca foi consultado.</div>
+    </div>
+  </div>
+
+  <div class="mov-card">
+    <div class="mov-num" style="color:var(--green)">05</div>
+    <div>
+      <div class="mov-title">CTA com data — não com promessa genérica</div>
+      <div class="mov-desc">Não sair da reunião com "vamos analisar". Sair com data e entregável: <em>"Me dê 7 dias de acesso ao GA4. Volto com o diagnóstico completo do funil antes de qualquer decisão de alocação de budget."</em> GA4 já instalado — é permissão de leitura, não projeto de TI.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:14px">
+    <div class="ct" style="margin-bottom:10px">4 provocações — o que nenhum time perguntou antes desta reunião</div>
+
+    <div class="prov-card" style="background:var(--purple2);border-left-color:var(--purple);color:var(--t2)">
+      O canal próprio tem o <strong style="color:var(--t1)">maior TM</strong>, <strong style="color:var(--t1)">zero comissão</strong> e <strong style="color:var(--t1)">gera dados de cliente</strong>. Por que é exatamente o canal que menos cresce? Alguém fez essa pergunta antes desta reunião?
+    </div>
+    <div class="prov-card" style="background:var(--amber2);border-left-color:var(--amber);color:var(--t2)">
+      O Terceiros cresceu +30% com desconto de -4,4%. Quando o desconto cessou, o crescimento caiu imediatamente. <strong style="color:var(--t1)">Não é vitória — é promoção com data de validade.</strong> E quem autorizou o R$15/ticket abaixo do grupo?
+    </div>
+    <div class="prov-card" style="background:var(--blue2);border-left-color:var(--blue);color:var(--t2)">
+      O share offline caiu de 44% para 35% em 1 ano. Essa migração vinha se construindo mês a mês. <strong style="color:var(--t1)">Um report com P&L de canal teria sinalizado isso 3–4 meses antes desta reunião com o VP.</strong>
+    </div>
+    <div class="prov-card" style="background:var(--red2);border-left-color:var(--red);color:var(--t2)">
+      O GA4 está instalado via Tag Manager há meses. O dado de abandono de funil existe — só não foi consultado. <strong style="color:var(--t1)">Aumentar budget agora é jogar dinheiro num funil com vazamento não mapeado.</strong>
+    </div>
+  </div>
+
+  <!-- CANAL PROPRIO COMO ATIVO ESTRATÉGICO -->
+  <div class="card" style="border-color:var(--blueb);margin-top:4px">
+    <div class="ct" style="color:var(--blue)">★ Canal próprio — o ativo mais valioso que a empresa está subaproveitando</div>
+    <div class="g3">
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;text-align:center">
+        <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--blue)">R$129–138</div>
+        <div style="font-size:10px;color:var(--t2);margin-top:4px;line-height:1.5">Maior ticket médio de todos os canais. Cada passageiro no próprio vale mais que no Terceiros.</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;text-align:center">
+        <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--green)">0%</div>
+        <div style="font-size:10px;color:var(--t2);margin-top:4px;line-height:1.5">Comissão de canal. Sem OTA, sem marketplace, sem intermediário retendo 12% da receita.</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;text-align:center">
+        <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--amber)">CPF</div>
+        <div style="font-size:10px;color:var(--t2);margin-top:4px;line-height:1.5">Gera dado de cliente. No Terceiros o passageiro é anônimo — no canal próprio ele tem nome, histórico e LTV.</div>
+      </div>
+    </div>
+    <div class="ins" style="margin-top:10px">Cada passageiro que migra do canal próprio para o Terceiros gera <strong>perda dupla: margem de preço + comissão de canal</strong>. O canal próprio é o ativo de mídia mais valioso do grupo — e é exatamente o canal que menos cresce na Viação Case. Isso define a prioridade: não é aumentar budget, é destravar o canal que já funciona no grupo.</div>
+  </div>
+
+  <div class="cta-box">
+    <h3>CTA para a reunião com o VP</h3>
+    <p>Me dê 7 dias de acesso ao GA4 e 1 reunião de 30 minutos com o time comercial sobre a política de preço no canal Terceiros. Volto com diagnóstico completo antes de qualquer decisão de alocação de budget. O problema não é falta de investimento — é falta do dado certo no lugar certo.</p>
+  </div>
+</div>
+
+<!-- GUIA -->
+<div class="guide-toggle" onclick="toggleGuide_c02(this)">
+  <h3>📊 Glossário — o que cada gráfico e métrica significa</h3>
+  <span id="guide-arrow-c02">▼ expandir</span>
+</div>
+<div class="guide-body" id="guide-body-c02">
+  <div class="gtab"><div class="gtab-title">Visão Macro — indicadores de desempenho</div>
+    <div class="gm info"><div class="gm-name">Diverging Bar Chart (Barras Divergentes)</div><div class="gm-desc">Barras crescem em direções opostas a partir do eixo zero. Permite comparar Viação Case vs Grupo no mesmo canal simultaneamente. A distância entre barras de cada canal é o argumento visual principal: o canal próprio da Viação Case cresceu 3× menos que o grupo no mesmo período e com o mesmo produto.</div></div>
+    <div class="gm info"><div class="gm-name">Area Chart — Migração de Share de Canal</div><div class="gm-desc">Gráfico de área empilhada mostrando a evolução do percentual de receita por canal ao longo de 12 meses. Visualiza a migração silenciosa: o Offline perdeu 9,4pp de share que foi quase integralmente para o Terceiros — enquanto o canal próprio ficou estático.</div></div>
+    <div class="gm info"><div class="gm-name">YoY · Volume · Ticket Médio</div><div class="gm-desc">YoY = variação ano a ano. A decomposição Receita = Volume × Ticket Médio é a análise mais importante do case: receita pode crescer por dois motivos distintos — mais passageiros (volume) ou passagem mais cara (TM). O Offline perdeu nos dois ao mesmo tempo; o Terceiros cresceu em volume mas perdeu em TM.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">Canais — análise detalhada</div>
+    <div class="gm info"><div class="gm-name">Lollipop Chart — Ticket Médio por Canal</div><div class="gm-desc">Ponto sólido = Viação Case, ponto vazio = Grupo, rótulo central = diferença em R$. O gap crítico é no Terceiros: a Viação Case vende R$15,25/ticket abaixo da média do grupo no mesmo canal. Com ~19.000 tickets/ano, isso representa R$293k/ano de receita cedida por praticar preço abaixo do benchmark interno.</div></div>
+    <div class="gm warn"><div class="gm-name">Desconto × Volume no Terceiros</div><div class="gm-desc">Quando o desconto foi aplicado (Jul-Dez 25): volume +30,2% com TM -4,4%. Quando cessou (Jan-Abr 26): volume caiu para +10,7% imediatamente. A relação causal direta indica que o crescimento do Terceiros foi comprado com desconto — não gerado por eficiência de canal ou campanha.</div></div>
+    <div class="gm info"><div class="gm-name">Share de Canal (%)</div><div class="gm-desc">Percentual da receita total que entra por cada canal (Offline, Digital Próprio, Digital Terceiros). A variação de share (ΔShare em pp) indica migração entre canais. Aumento de share no Terceiros sem aumento proporcional no Próprio indica canibalização de canal mais rentável.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">P&L · Margem por Canal</div>
+    <div class="gm info"><div class="gm-name">Waterfall Chart (Cascata de Margem)</div><div class="gm-desc">Visualiza a jornada de Receita Bruta até MC3 para cada canal. Cada barra representa uma dedução. Permite comparar visualmente não apenas o valor final de margem, mas onde cada canal "perde" receita no caminho — comissões, mídia, plataforma, atendimento.</div></div>
+    <div class="gm info"><div class="gm-name">MC1 · MC2 · MC3 (Margem de Contribuição)</div><div class="gm-desc">MC1 = Receita após comissões de canal. MC2 = MC1 após custos de mídia e plataforma. MC3 = MC2 após custos de atendimento digital. Cada nível adiciona uma camada de custo. O Offline apresenta MC3 elevada mas não inclui custos operacionais variáveis (combustível, tripulação, pneus) — esses são alocados pelo FP&A.</div></div>
+    <div class="gm warn"><div class="gm-name">Nota sobre o Offshore (⚠)</div><div class="gm-desc">O canal Offline aparece com MC3 de 84%, a maior entre os canais. Porém, este P&L exclui os custos operacionais variáveis do transporte: combustível, tripulação, manutenção de frota, ANTT, seguro. Quando esses são alocados, o Offline provavelmente apresenta a menor margem real entre os três canais.</div></div>
+    <div class="gm ok"><div class="gm-name">Cenário de Migração de Canal</div><div class="gm-desc">Calcula o impacto financeiro de migrar 10 pontos percentuais de share do Terceiros para o canal próprio. Resultado: +R$7k em comissão evitada + +R$314k no gap de preço corrigido = R$322k/viação/ano. A anualização usa ×3 sobre Jan-Abr (4 meses) — estimativa conservadora pois Jan-Abr é baixa temporada.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">Hipóteses e Dados Ausentes</div>
+    <div class="gm ok"><div class="gm-name">Graus de Evidência das Hipóteses</div><div class="gm-desc">✓ Confirmada = dado na planilha prova diretamente. ★ Forte = benchmark interno elimina as alternativas principais. ★ Hipótese = correlação forte mas requer dado adicional para confirmar. ★ Investigar = pista relevante sem dado suficiente para direcionar ação.</div></div>
+    <div class="gm crit"><div class="gm-name">Dados P1 — bloqueiam decisão imediata</div><div class="gm-desc">Funil GA4 (acesso de leitura, 7 dias), Política de preço OTA (resposta do time comercial, imediato), TM por rota (query no BI de TI, 2 semanas), Load Factor digital (bilhetagem, 3–4 semanas), Mapa de canibalização por CPF (CRM + bilhetagem, 4–6 semanas). Sem esses dados, qualquer decisão de alocação de budget é arbitrária.</div></div>
+    <div class="gm warn"><div class="gm-name">Dados P2 — complementam o diagnóstico</div><div class="gm-desc">CAC por canal = (Investimento mídia ÷ tickets próprio) vs (comissão ÷ tickets Terceiros). Define o break-even real entre canais além da margem. Elasticidade da taxa de conveniência = análise de GA4 + CRM para entender o que realmente determina a escolha de canal pelo passageiro.</div></div>
+<div id="panel-c01" class="case-panel"><button class="back-btn" onclick="showPortal('home')">← Início</button><div class="shell"><div class="hdr">
+  <div class="hdr-left">
+    <h1>Case 01 — Report de Resultados Funcional</h1>
+    <p>Time Digital · Grupo Guanabara · 5 Núcleos · Referência: Abr/2026</p>
+  </div>
+  <div class="hdr-right">
+    <div class="brow">
+      <span class="badge bb">5 Núcleos</span>
+      <span class="badge bg">Dados reais: N1 e N2</span>
+    </div>
+    <span class="note">⚠ N3 · N4 · N5 = dados ilustrativos</span>
+  </div>
+</div>
+
+<div class="c02">
+  <strong>🔗 Conexão Case 02:</strong>&nbsp;
+  Se este report existisse, o gap do canal próprio da Viação Case (-7,7pp vs grupo) e a migração de share do Offline (-9,4pp) teriam sido detectados em Set/Out 2025 — 3 a 4 meses antes da reunião de crise com o VP. O N2 deste report é exatamente onde esse problema apareceria primeiro.
+</div>
+
+<!-- CONTROLES -->
+<div class="ctrl-bar">
+  <span class="ctrl-label">Período:</span>
+  <button class="pb" onclick="setPeriod_c01('jd',this)">Jul-Dez 2025</button>
+  <button class="pb on" onclick="setPeriod_c01('ja',this)">Jan-Abr 2026</button>
+  <div class="ctrl-div"></div>
+  <span class="ctrl-label">Comparar:</span>
+  <button class="cb on-yoy" id="btn-yoy" onclick="setComp_c01('yoy',this)">YoY</button>
+  <button class="cb" id="btn-mom" onclick="setComp_c01('mom',this)">MoM</button>
+  <button class="cb" id="btn-meta" onclick="setComp_c01('meta',this)">vs Meta</button>
+  <span class="ctrl-info" id="ctrl-info-c01">Jan-Abr 2026 · comparando com Jan-Abr 2025</span>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="showTab_c01(this,'n1')">N1 · Macro</button>
+  <button class="tab" onclick="showTab_c01(this,'n2')">N2 · Canais</button>
+  <button class="tab" onclick="showTab_c01(this,'n3')">N3 · CX Produto</button>
+  <button class="tab" onclick="showTab_c01(this,'n4')">N4 · Base CRM</button>
+  <button class="tab" onclick="showTab_c01(this,'n5')">N5 · Atendimento</button>
+</div>
+
+<!-- N1 MACRO -->
+<div id="n1" class="sec on">
+  <div class="ab ab-a" id="n1-alert">⚠ Share Digital Próprio abaixo da meta — canal com maior margem crescendo menos que o grupo. Ver N2 para diagnóstico por canal.</div>
+  <div class="kpis kpis-5" id="n1-kpis">
+    <div class="kpi kb"><div class="semaforo s-amber" title="Atenção — próximo da meta"></div><div class="kl">Receita Total Grupo</div><div class="kv" id="k-rec" style="color:var(--t1)">R$59,9M</div><div class="ks" id="k-rec-s"><span class="up">+2,3% YoY</span></div><div class="km" id="k-rec-m">Meta: +3,0%</div></div>
+    <div class="kpi kr"><div class="semaforo s-red" title="Crítico — abaixo da meta"></div><div class="kl">Share Digital Próprio</div><div class="kv" id="k-share" style="color:var(--amber)">21,2%</div><div class="ks al">Meta: 25% ⚠</div><div class="km">-3,8pp vs meta</div></div>
+    <div class="kpi kg"><div class="semaforo s-green" title="OK — meta atingida"></div><div class="kl">ROI Digital (RoAS)</div><div class="kv" id="k-roas" style="color:var(--green)">7,7x</div><div class="ks up" id="k-roas-s">+0,3x MoM</div><div class="km">Meta: 7,0x ✓</div></div>
+    <div class="kpi kr"><div class="semaforo s-red" title="Crítico — acima do limite"></div><div class="kl">Reclame Aqui (vol.)</div><div class="kv" id="k-ra" style="color:var(--amber)">124</div><div class="ks al">+8 vs mês ant.</div><div class="km">Meta: ≤ 100 ⚠</div></div>
+    <div class="kpi kb"><div class="semaforo s-green" title="OK — meta atingida"></div><div class="kl">Margem Contrib. Digital</div><div class="kv" id="k-mc" style="color:var(--blue)">82,4%</div><div class="ks up">+1,1pp YoY</div><div class="km">Meta: 80% ✓</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">
+      Receita por canal — Grupo Guanabara
+      <span id="n1-mode-tag-wrap"><span class="mode-tag mt-yoy">YoY</span></span>
+    </div>
+    <table class="tbl">
+      <tr><th>Canal</th><th class="r">Receita</th><th class="r" id="th-col2">Var. YoY</th><th class="r">Share</th><th class="r">TM Médio</th><th class="r">Status</th></tr>
+      <tr><td>Offline</td><td class="r" id="t-off-rec">R$35,6M</td><td class="r" id="t-off-var"><span class="chip cd">-1,6%</span></td><td class="r" id="t-off-sh">59,5%</td><td class="r" id="t-off-tm">R$104,97</td><td class="r" id="t-off-st"><span class="chip ca">Atenção</span></td></tr>
+      <tr><td>Digital Próprio</td><td class="r" id="t-dp-rec">R$12,7M</td><td class="r" id="t-dp-var"><span class="chip cu">+10,9%</span></td><td class="r" id="t-dp-sh">21,2%</td><td class="r" id="t-dp-tm">R$131,67</td><td class="r" id="t-dp-st"><span class="chip cu">OK</span></td></tr>
+      <tr><td>Digital Terceiros</td><td class="r" id="t-dt-rec">R$11,6M</td><td class="r" id="t-dt-var"><span class="chip cu">+6,4%</span></td><td class="r" id="t-dt-sh">19,3%</td><td class="r" id="t-dt-tm">R$142,66</td><td class="r" id="t-dt-st"><span class="chip ca">Revisar</span></td></tr>
+      <tr><td><strong>Total</strong></td><td class="r" id="t-tot-rec"><strong>R$59,9M</strong></td><td class="r" id="t-tot-var"><strong>+2,3%</strong></td><td class="r">100%</td><td class="r">—</td><td class="r">—</td></tr>
+    </table>
+    <div style="font-size:10px;color:var(--t3);margin-top:6px" id="comp-note">YoY = Jan-Abr 2026 vs Jan-Abr 2025. Dados reais da planilha.</div>
+  </div>
+  <div class="card">
+    <div class="ct">Evolução receita mensal — Grupo | últimos meses</div>
+    <div class="cw" style="height:170px"><canvas id="c1"></canvas></div>
+  </div>
+</div>
+
+<!-- N2 CANAIS -->
+<div id="n2" class="sec">
+  <div class="ab ab-a">⚠ Viação Case identificada como outlier: Digital Próprio +3,2% vs grupo +10,9% (gap -7,7pp progressivo). GA4 instalado mas nunca analisado. Este é o slide que teria detectado o Case 02 antecipadamente.</div>
+
+  <!-- FILTRO VIAÇÃO -->
+  <div class="via-bar">
+    <span class="via-label">Visão:</span>
+    <button class="vb on" onclick="setVia_c01('grupo',this)">Grupo Total</button>
+    <button class="vb" onclick="setVia_c01('vc',this)">Viação Case</button>
+    <button class="vb" onclick="setVia_c01('comp',this)">Comparativo VC vs Grupo</button>
+  </div>
+
+  <!-- GRUPO TOTAL -->
+  <div id="via-grupo">
+    <div class="kpis">
+      <div class="kpi kb"><div class="semaforo s-green"></div><div class="kl">Invest. Mídia Digital</div><div class="kv" style="color:var(--blue)" id="k-inv">R$182k</div><div class="ks up">RoAS: 7,7x ✓</div><div class="km">Meta: ≥ 7,0x</div></div>
+      <div class="kpi kg"><div class="semaforo s-amber"></div><div class="kl">Receita Digital Próprio</div><div class="kv" style="color:var(--green)" id="k-dp">R$12,7M</div><div class="ks up" id="k-dp-s">+10,9% YoY</div><div class="km">Grupo</div></div>
+      <div class="kpi ka"><div class="semaforo s-amber"></div><div class="kl">Receita Digital Terceiros</div><div class="kv" style="color:var(--amber)" id="k-dt">R$11,6M</div><div class="ks al" id="k-dt-s">Comissão: ~R$1,4M/ano</div><div class="km" id="k-dt-sh">19,3% do total</div></div>
+      <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Conversão Site (GA4)</div><div class="kv" style="color:var(--amber)">2,1%</div><div class="ks al">Meta: 3,5% ⚠</div><div class="km">Dado real</div></div>
+    </div>
+    <div class="g2">
+      <div class="card"><div class="ct">RoAS por canal de mídia <span class="ct-note">★ ilustrativo</span></div><div class="cw" style="height:170px"><canvas id="c2"></canvas></div></div>
+      <div class="card"><div class="ct">Share canal próprio vs terceiros — evolução</div><div class="cw" style="height:170px"><canvas id="c3"></canvas></div></div>
+    </div>
+  </div>
+
+  <!-- VIAÇÃO CASE -->
+  <div id="via-vc" style="display:none">
+    <div class="ab ab-p">🔍 Viação Case isolada — os números que ninguém tinha quando o VP convocou a reunião.</div>
+    <div class="kpis">
+      <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Receita Total VC</div><div class="kv" style="color:var(--t1)" id="k-vc-rec">R$2,4M</div><div class="ks" id="k-vc-rec-s"><span class="up">+1,2% YoY</span></div><div class="km">Grupo: +2,3%</div></div>
+      <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Dig. Próprio VC</div><div class="kv" style="color:var(--red)">R$747k</div><div class="ks dn">+3,2% YoY</div><div class="km">Grupo: +10,9% ⚠ gap -7,7pp</div></div>
+      <div class="kpi ka"><div class="semaforo s-amber"></div><div class="kl">Dig. Terceiros VC</div><div class="kv" style="color:var(--amber)">R$816k</div><div class="ks al">+11,6% YoY</div><div class="km">TM R$127 vs Grupo R$143</div></div>
+      <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Offline VC</div><div class="kv" style="color:var(--red)">R$836k</div><div class="ks dn">-8,8% YoY</div><div class="km">Grupo Offline: -1,6%</div></div>
+    </div>
+    <div class="g2">
+      <div class="card"><div class="ct">Share de receita VC — evolução anual</div><div class="cw" style="height:170px"><canvas id="c-vc-share"></canvas></div></div>
+      <div class="card"><div class="ct">TM por canal VC vs Grupo <span class="ct-note">Jan-Abr 26</span></div><div class="cw" style="height:170px"><canvas id="c-vc-tm"></canvas></div></div>
+    </div>
+    <div class="card">
+      <div class="ct">Decomposição VC — Viação Case | Jan-Abr 2026</div>
+      <table class="tbl">
+        <tr><th>Canal</th><th class="r">Receita VC</th><th class="r">YoY VC</th><th class="r">Share VC</th><th class="r">TM VC</th><th class="r">TM Grupo</th><th class="r">Gap TM</th></tr>
+        <tr><td>Offline</td><td class="r">R$836k</td><td class="r"><span class="chip cd">-8,8%</span></td><td class="r">34,8%</td><td class="r">R$102,85</td><td class="r">R$104,97</td><td class="r"><span class="chip cd">-R$2,12</span></td></tr>
+        <tr><td>Digital Próprio</td><td class="r">R$747k</td><td class="r"><span class="chip cu">+3,2%</span></td><td class="r">31,1%</td><td class="r">R$129,07</td><td class="r">R$131,67</td><td class="r"><span class="chip cd">-R$2,60</span></td></tr>
+        <tr><td>Digital Terceiros</td><td class="r">R$816k</td><td class="r"><span class="chip cu">+11,6%</span></td><td class="r">34,0%</td><td class="r">R$127,41</td><td class="r">R$142,66</td><td class="r"><span class="chip cd">-R$15,25 ⚠</span></td></tr>
+        <tr><td><strong>Total VC</strong></td><td class="r"><strong>R$2,4M</strong></td><td class="r"><strong>+1,2%</strong></td><td class="r">100%</td><td class="r">R$118,06</td><td class="r">—</td><td class="r">—</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- COMPARATIVO -->
+  <div id="via-comp" style="display:none">
+    <div class="ab ab-p">📊 Comparativo direto VC vs Grupo — a mesma visão que o VP precisava ter antes da reunião de crise.</div>
+    <div class="cmp-grid" style="margin-bottom:10px">
+      <div class="cmp-header cmp-vc">⚠ Viação Case</div>
+      <div class="cmp-header cmp-gr">Grupo Total</div>
+    </div>
+    <div class="card"><div class="ct">Crescimento YoY por canal — VC vs Grupo | Jan-Abr 2026</div><div class="cw" style="height:220px"><canvas id="c-comp"></canvas></div></div>
+    <div class="card">
+      <div class="ct">Painel comparativo — VC vs Grupo | Jan-Abr 2026</div>
+      <table class="tbl">
+        <tr><th>Métrica</th><th class="r">Viação Case</th><th class="r">Grupo Total</th><th class="r">Gap</th><th class="r">Leitura</th></tr>
+        <tr><td>Receita Total (YoY)</td><td class="r"><span class="chip cu">+1,2%</span></td><td class="r"><span class="chip cu">+2,3%</span></td><td class="r"><span class="chip cd">-1,1pp</span></td><td class="r">Abaixo</td></tr>
+        <tr><td>Digital Próprio (YoY)</td><td class="r"><span class="chip ca">+3,2%</span></td><td class="r"><span class="chip cu">+10,9%</span></td><td class="r"><span class="chip cd">-7,7pp ⚠</span></td><td class="r">Crítico</td></tr>
+        <tr><td>Digital Terceiros (YoY)</td><td class="r"><span class="chip cu">+11,6%</span></td><td class="r"><span class="chip cu">+6,4%</span></td><td class="r"><span class="chip cu">+5,2pp</span></td><td class="r">Atenção</td></tr>
+        <tr><td>Offline (YoY)</td><td class="r"><span class="chip cd">-8,8%</span></td><td class="r"><span class="chip cd">-1,6%</span></td><td class="r"><span class="chip cd">-7,2pp ⚠</span></td><td class="r">Crítico</td></tr>
+        <tr><td>TM Terceiros</td><td class="r">R$127,41</td><td class="r">R$142,66</td><td class="r"><span class="chip cd">-R$15,25</span></td><td class="r">Desconto</td></tr>
+        <tr><td>Share Offline</td><td class="r">34,8%</td><td class="r">59,5%</td><td class="r"><span class="chip cd">-24,7pp</span></td><td class="r">Perfil diferente</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- N3 CX PRODUTO -->
+<div id="n3" class="sec">
+  <div class="ab ab-r">⚠ Conversão mobile crítica: 1,8% vs desktop 3,2%. Gap de 1,4pp = R$831k de receita potencial/mês não capturada. Prioridade para time de Produto.</div>
+  <div class="kpis kpis-3">
+    <div class="kpi kb"><div class="semaforo s-amber"></div><div class="kl">Conversão Desktop</div><div class="kv" style="color:var(--blue)">3,2%</div><div class="ks up">Meta: 3,5% — próximo</div><div class="km">+0,4pp MoM ↑</div></div>
+    <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Conversão Mobile</div><div class="kv" style="color:var(--red)">1,8%</div><div class="ks dn">Meta: 3,0% ✗ crítico</div><div class="km">-1,2pp vs Desktop</div></div>
+    <div class="kpi kg"><div class="semaforo s-green"></div><div class="kl">Conversão App</div><div class="kv" style="color:var(--green)">2,7%</div><div class="ks up">Meta: 2,5% ✓</div><div class="km">+0,2pp MoM ↑</div></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Funil de conversão — canal próprio <span class="ct-note">★ GA4 ilustrativo</span></div>
+      <div class="pw"><div class="pl"><span>Sessões totais</span><span>100%</span></div><div class="pb2"><div class="pf" style="width:100%;background:var(--blue)"></div></div></div>
+      <div class="pw"><div class="pl"><span>Busca de rota</span><span>68%</span></div><div class="pb2"><div class="pf" style="width:68%;background:var(--blue)"></div></div></div>
+      <div class="pw"><div class="pl"><span>Seleção de assento</span><span style="color:var(--amber)">41%</span></div><div class="pb2"><div class="pf" style="width:41%;background:var(--amber)"></div></div></div>
+      <div class="pw"><div class="pl"><span>Checkout iniciado</span><span style="color:var(--amber)">12%</span></div><div class="pb2"><div class="pf" style="width:12%;background:var(--amber)"></div></div></div>
+      <div class="pw"><div class="pl"><span><strong>Conversão final</strong></span><span style="color:var(--red)"><strong>2,1%</strong></span></div><div class="pb2"><div class="pf" style="width:2.1%;background:var(--red)"></div></div></div>
+      <div style="font-size:10px;color:var(--amber);margin-top:6px">Maior abandono: Busca → Seleção assento (27pp). Mobile abandona 2× mais que desktop.</div>
+    </div>
+    <div class="card"><div class="ct">Conversão por dispositivo — evolução <span class="ct-note">★ ilustrativo</span></div><div class="cw" style="height:195px"><canvas id="c4"></canvas></div></div>
+  </div>
+  <div class="card">
+    <div class="ct">Impacto financeiro do gap de conversão</div>
+    <table class="tbl">
+      <tr><th>Dispositivo</th><th class="r">Sessões/mês</th><th class="r">Conv. atual</th><th class="r">Conv. meta</th><th class="r">Receita adicional potencial</th></tr>
+      <tr><td>Desktop</td><td class="r">280k</td><td class="r">3,2%</td><td class="r">3,5%</td><td class="r"><span class="chip cu">+R$112k/mês</span></td></tr>
+      <tr><td>Mobile</td><td class="r">520k</td><td class="r">1,8%</td><td class="r">3,0%</td><td class="r"><span class="chip cu">+R$831k/mês</span></td></tr>
+      <tr><td>App</td><td class="r">95k</td><td class="r">2,7%</td><td class="r">2,5%</td><td class="r"><span class="chip cn">na meta</span></td></tr>
+      <tr><td><strong>Potencial total</strong></td><td class="r">—</td><td class="r">—</td><td class="r">—</td><td class="r"><span class="chip cu">+R$943k/mês</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- N4 CRM -->
+<div id="n4" class="sec">
+  <div class="ab ab-a">⚠ Recorrência em 34% vs meta 40%. 66% da base comprou apenas 1 vez. Maior alavanca de receita sem custo de aquisição nova.</div>
+  <div class="kpis">
+    <div class="kpi kb"><div class="semaforo s-green"></div><div class="kl">Base CRM Ativa</div><div class="kv" style="color:var(--blue)">185k</div><div class="ks up">+2,1% MoM ↑</div><div class="km">Meta: +2,0% ✓</div></div>
+    <div class="kpi kg"><div class="semaforo s-green"></div><div class="kl">Revenue/Base</div><div class="kv" style="color:var(--green)">R$130</div><div class="ks up">+R$8 MoM ↑</div><div class="km">Receita média por cliente ativo</div></div>
+    <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Taxa de Recorrência</div><div class="kv" style="color:var(--amber)">34%</div><div class="ks al">Meta: 40% ⚠</div><div class="km">-6pp vs meta</div></div>
+    <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Churn de Base (90d)</div><div class="kv" style="color:var(--red)">18%</div><div class="ks dn">Meta: ≤ 15% ✗</div><div class="km">+1pp MoM ↓</div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="ct">Crescimento da base CRM <span class="ct-note">★ ilustrativo</span></div><div class="cw" style="height:170px"><canvas id="c5"></canvas></div></div>
+    <div class="card"><div class="ct">Segmentação por frequência <span class="ct-note">★ ilustrativo</span></div><div class="cw" style="height:170px"><canvas id="c6"></canvas></div></div>
+  </div>
+  <div class="card">
+    <div class="ct">LTV por segmento — regra 80/20 <span class="ct-note">★ ilustrativo</span></div>
+    <table class="tbl">
+      <tr><th>Segmento</th><th class="r">Clientes</th><th class="r">Freq./ano</th><th class="r">TM médio</th><th class="r">LTV est.</th><th class="r">% base</th><th class="r">% receita</th></tr>
+      <tr><td>🏆 Fidelizados (5+)</td><td class="r">22k</td><td class="r">7,2x</td><td class="r">R$138</td><td class="r"><span style="color:var(--green);font-weight:600">R$993</span></td><td class="r">12%</td><td class="r">38%</td></tr>
+      <tr><td>🔄 Recorrentes (2-4)</td><td class="r">41k</td><td class="r">2,8x</td><td class="r">R$131</td><td class="r"><span style="color:var(--blue);font-weight:600">R$367</span></td><td class="r">22%</td><td class="r">33%</td></tr>
+      <tr><td>🆕 Transacionais (1)</td><td class="r">122k</td><td class="r">1,0x</td><td class="r">R$124</td><td class="r"><span style="color:var(--amber);font-weight:600">R$124</span></td><td class="r">66%</td><td class="r">29%</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- N5 ATENDIMENTO -->
+<div id="n5" class="sec">
+  <div class="ab ab-r">⚠ 3 indicadores críticos: Reclame Aqui (124 vs ≤100), TM Resolução (2,3d vs 1,5d) e abandono Call Center (12% vs 8%).</div>
+  <div class="kpis">
+    <div class="kpi kg"><div class="semaforo s-green"></div><div class="kl">Tickets IA Automatizados</div><div class="kv" style="color:var(--green)">68%</div><div class="ks up">Meta: 65% ✓</div><div class="km">1.256 de 1.847 tickets</div></div>
+    <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">Reclame Aqui — Volume</div><div class="kv" style="color:var(--red)">124</div><div class="ks dn">Meta: ≤ 100 ✗</div><div class="km">+8 vs mês anterior ↑</div></div>
+    <div class="kpi kr"><div class="semaforo s-red"></div><div class="kl">TM Resolução (dias)</div><div class="kv" style="color:var(--red)">2,3</div><div class="ks dn">Meta: 1,5 dias ✗</div><div class="km">+0,2d MoM ↑ (piora)</div></div>
+    <div class="kpi ka"><div class="semaforo s-red"></div><div class="kl">Call Center — Abandono</div><div class="kv" style="color:var(--amber)">12%</div><div class="ks al">Meta: ≤ 8% ⚠</div><div class="km">TMA: 4m32s · TME: 2m18s</div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="ct">Tickets por categoria — IA vs Humano <span class="ct-note">★ ilustrativo</span></div><div class="cw" style="height:170px"><canvas id="c7"></canvas></div></div>
+    <div class="card">
+      <div class="ct">NPS por viação — Meta: ≥ 70 <span class="ct-note">★ ilustrativo</span></div>
+      <div class="via-grid">
+        <div class="via-card"><div class="via-name">Viação A</div><div class="via-nps" style="color:var(--green)">72</div><div style="font-size:9px;color:var(--green)">🟢 acima meta</div></div>
+        <div class="via-card"><div class="via-name">Viação B</div><div class="via-nps" style="color:var(--amber)">68</div><div style="font-size:9px;color:var(--amber)">🟡 próximo</div></div>
+        <div class="via-card"><div class="via-name">Viação Case</div><div class="via-nps" style="color:var(--amber)">61</div><div style="font-size:9px;color:var(--red)">🔴 abaixo meta</div></div>
+        <div class="via-card"><div class="via-name">Viação D</div><div class="via-nps" style="color:var(--green)">74</div><div style="font-size:9px;color:var(--green)">🟢 acima meta</div></div>
+        <div class="via-card"><div class="via-name">Viação E</div><div class="via-nps" style="color:var(--red)">54</div><div style="font-size:9px;color:var(--red)">🔴 crítico</div></div>
+        <div class="via-card"><div class="via-name">Viação F</div><div class="via-nps" style="color:var(--green)">70</div><div style="font-size:9px;color:var(--amber)">🟡 na meta</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">Call Center 0800 <span class="ct-note">★ ilustrativo</span></div>
+    <table class="tbl">
+      <tr><th>Indicador</th><th class="r">Atual</th><th class="r">Meta</th><th class="r">Status</th><th class="r">MoM</th></tr>
+      <tr><td>TMA</td><td class="r">4m32s</td><td class="r">≤ 4m00s</td><td class="r">🟡 <span class="chip ca">Atenção</span></td><td class="r"><span class="chip cd">+12s ↑</span></td></tr>
+      <tr><td>TME</td><td class="r">2m18s</td><td class="r">≤ 2m00s</td><td class="r">🟡 <span class="chip ca">Atenção</span></td><td class="r"><span class="chip cd">+8s ↑</span></td></tr>
+      <tr><td>Taxa de Abandono</td><td class="r">12%</td><td class="r">≤ 8%</td><td class="r">🔴 <span class="chip cd">Crítico</span></td><td class="r"><span class="chip cd">+1,2pp ↑</span></td></tr>
+      <tr><td>Resolução 1º contato</td><td class="r">72%</td><td class="r">≥ 75%</td><td class="r">🟡 <span class="chip ca">Próximo</span></td><td class="r"><span class="chip cu">+2pp ↑</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- GUIA -->
+<div class="guide-toggle" onclick="toggleGuide_c01(this)">
+  <h3>📊 Glossário de Métricas — o que cada indicador significa</h3>
+  <span id="guide-arrow-c01">▼ expandir</span>
+</div>
+<div class="guide-body" id="guide-body-c01">
+  <div class="gtab"><div class="gtab-title">N1 · Macro — Métricas de visão executiva</div>
+    <div class="gm ok"><div class="gm-name">Receita Total Grupo</div><div class="gm-desc">Soma de todas as receitas digitais do período — canal próprio + terceiros. KPI-raiz: todos os outros núcleos explicam movimentos aqui. Exibido com comparação YoY (ano a ano), MoM (mês a mês) ou vs Meta conforme seletor.</div></div>
+    <div class="gm crit"><div class="gm-name">Share Digital Próprio</div><div class="gm-desc">Percentual da receita total que entra pelo site ou app da empresa — canal sem comissão de terceiros e com maior margem. Meta de 25% significa 1 em cada 4 reais entrando pelo canal controlado. Abaixo da meta indica dependência excessiva de OTAs e marketplaces.</div></div>
+    <div class="gm ok"><div class="gm-name">ROI Digital (RoAS)</div><div class="gm-desc">Return on Ad Spend — quantos reais de receita são gerados por cada real investido em mídia paga. RoAS 7,7× significa R$7,70 de receita por R$1,00 de anúncio. Referência do setor: acima de 7,0× é considerado saudável para transporte rodoviário digital.</div></div>
+    <div class="gm crit"><div class="gm-name">Reclame Aqui (Volume)</div><div class="gm-desc">Total de reclamações abertas no período. Alto volume precede queda de NPS e impacta conversão — novos clientes pesquisam a empresa antes de comprar. Acima de 100 reclamações/mês sinaliza problema sistêmico que requer investigação de causa-raiz.</div></div>
+    <div class="gm ok"><div class="gm-name">Margem de Contribuição Digital (MC Digital)</div><div class="gm-desc">Percentual da receita digital que sobra após custos de distribuição digital: comissões de OTAs, investimento em mídia paga, plataforma e atendimento digital. Não inclui custos operacionais de transporte (combustível, frota, ANTT) — esses são alocados pelo FP&A corporativo.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">N1 · Semáforo — lógica de alertas</div>
+    <div class="gm ok"><div class="gm-name">🟢 Verde — Meta atingida</div><div class="gm-desc">Indicador dentro do intervalo esperado. Não requer ação imediata, mas monitoramento contínuo para evitar deterioração gradual.</div></div>
+    <div class="gm warn"><div class="gm-name">🟡 Amarelo — Atenção</div><div class="gm-desc">Indicador próximo do limite de alerta (dentro de 1 desvio-padrão da meta). Requer revisão no próximo ciclo e plano de ação preventivo antes de se tornar crítico.</div></div>
+    <div class="gm crit"><div class="gm-name">🔴 Vermelho — Crítico</div><div class="gm-desc">Indicador significativamente abaixo da meta com impacto direto em receita ou reputação. Requer ação imediata, responsável definido e prazo de resolução. Dispara alerta automático semanal.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">N2 · Canais — métricas por canal de venda</div>
+    <div class="gm info"><div class="gm-name">Canal Digital Próprio (site + app)</div><div class="gm-desc">Vendas realizadas diretamente no site ou aplicativo da empresa. Zero comissão de terceiros, maior ticket médio, e — mais importante — gera dado de cliente (CPF, comportamento de compra) que alimenta CRM e fidelização.</div></div>
+    <div class="gm warn"><div class="gm-name">Canal Digital Terceiros (OTAs e parceiros)</div><div class="gm-desc">Vendas via marketplaces como Clickbus, Buser, e similares. Cobra comissão (estimativa: 8–12% do bilhete) e não repassa dados de cliente. O crescimento neste canal, sem crescimento proporcional no canal próprio, indica migração de margem para terceiros.</div></div>
+    <div class="gm info"><div class="gm-name">Canal Offline (guichê e agentes)</div><div class="gm-desc">Vendas presenciais em guichês de rodoviária e agentes credenciados. Tem custos operacionais elevados (estrutura física, pessoal) que não aparecem no P&L digital mas impactam a margem consolidada quando alocados pelo FP&A.</div></div>
+    <div class="gm info"><div class="gm-name">YoY (Year over Year)</div><div class="gm-desc">Variação percentual comparando o período atual com o mesmo período do ano anterior. Elimina sazonalidade. Ex: Jan-Abr 2026 vs Jan-Abr 2025.</div></div>
+    <div class="gm info"><div class="gm-name">RoAS por Canal de Mídia</div><div class="gm-desc">Retorno sobre investimento em cada canal de mídia paga (Google Search, Meta, Programático, CRM/Email). CRM/Email tem RoAS mais alto porque o custo de envio é baixo e a conversão é maior — a audiência já conhece a marca. Meta: Google ≥ 7×, Meta ≥ 5×.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">N3 · CX Produto — funil e conversão digital</div>
+    <div class="gm crit"><div class="gm-name">Taxa de Conversão por Dispositivo</div><div class="gm-desc">Percentual de sessões que resultam em compra, segmentado por Desktop, Mobile e App. O gap entre Mobile (1,8%) e Desktop (3,2%) indica problema de UX no site mobile — não na intenção do usuário, já que o App (2,7%) converte melhor.</div></div>
+    <div class="gm crit"><div class="gm-name">Funil de Conversão (Busca → Seleção → Pagamento)</div><div class="gm-desc">Percentual de usuários que avançam em cada etapa da jornada de compra. A maior queda entre Busca e Seleção de assento (68%→41% = 27pp perdidos) indica problema de UX nesta etapa específica. Cada 1pp recuperado nessa etapa representa aproximadamente R$156k/mês de receita adicional.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">N4 · Base CRM — recorrência e valor de cliente</div>
+    <div class="gm info"><div class="gm-name">Revenue/Base</div><div class="gm-desc">Receita média gerada por cliente ativo na base CRM no período. Mede se a base está se tornando mais ou menos valiosa ao longo do tempo. Crescimento consistente indica fidelização efetiva; queda indica churn silencioso ou downgrade de ticket.</div></div>
+    <div class="gm crit"><div class="gm-name">Recorrência (%)</div><div class="gm-desc">Percentual de clientes que compraram mais de uma vez nos últimos 12 meses. Clientes recorrentes têm LTV (valor de vida) 3–8× maior que transacionais e custo de aquisição zero na segunda compra. Referência: setor de transporte rodoviário DTC — meta de recorrência acima de 40%.</div></div>
+    <div class="gm crit"><div class="gm-name">Churn de Base (%)</div><div class="gm-desc">Percentual de clientes ativos que não compraram no período de análise. Clientes que compram 1× e não retornam em 90 dias têm alta probabilidade de churn definitivo. Principal alavanca de crescimento orgânico: reduzir churn custa menos que adquirir novo cliente.</div></div>
+    <div class="gm info"><div class="gm-name">LTV (Lifetime Value) por Segmento</div><div class="gm-desc">Valor total gerado por um cliente ao longo de seu relacionamento com a empresa. Segmentado em Fidelizados (recorrentes, programa Viva Fidelidade) vs Transacionais (compra única). A diferença de LTV entre segmentos define onde concentrar esforços de retenção.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">N5 · Atendimento — qualidade e reputação</div>
+    <div class="gm info"><div class="gm-name">NPS por Viação (Net Promoter Score)</div><div class="gm-desc">Escala de 0–100 que mede a disposição do cliente em recomendar a empresa. Calculado como % Promotores (nota 9–10) menos % Detratores (nota 0–6). Segmentado por viação para identificar operações com desempenho abaixo do padrão do grupo.</div></div>
+    <div class="gm crit"><div class="gm-name">TMA / TME / Taxa de Abandono (Call Center)</div><div class="gm-desc">TMA = Tempo Médio de Atendimento. TME = Tempo Médio de Espera. Taxa de Abandono = % de ligações encerradas antes do atendimento. Abandono acima de 8% indica que clientes desistem antes de ser atendidos — migram para Reclame Aqui e impactam NPS.</div></div>
+    <div class="gm info"><div class="gm-name">IA de Tickets (% automatizados)</div><div class="gm-desc">Percentual de tickets de atendimento resolvidos automaticamente por IA sem intervenção humana. Indica eficiência operacional do atendimento digital. Categorias com baixa automação (ex: "Atraso/problema") requerem fluxo humano por complexidade.</div></div>
+    <div class="gm warn"><div class="gm-name">Reclame Aqui — TM de Resolução e Volume</div><div class="gm-desc">TM de Resolução = tempo médio entre abertura e encerramento da reclamação. Junto com o volume, mede a capacidade da empresa de resolver problemas de forma eficiente e pública. Alta visibilidade: novos clientes consultam o Reclame Aqui antes de comprar.</div></div>
+<div id="panel-c03" class="case-panel"><button class="back-btn" onclick="showPortal('home')">← Início</button><div class="shell"><div class="hdr">
+  <div>
+    <h1>Case 03 — Primeiros 90 Dias</h1>
+    <p>Estruturação da Área de IM Digital · Smart Travel / Grupo Guanabara</p>
+    <div class="brow">
+      <span class="badge bb">3 fases · 12 semanas</span>
+      <span class="badge bg">Excel primeiro · depois automatizar</span>
+      <span class="badge ba">Quick win em 30 dias</span>
+      <span class="badge bp">Gestão por influência</span>
+    </div>
+  </div>
+</div>
+
+<div class="bridge">
+  <strong>🔗 O arco dos 3 cases:</strong>&nbsp;O Case 02 identificou o problema — R$322k/viação/ano perdidos sem diagnóstico. O Case 01 propôs o sistema — report que detectaria isso meses antes. Este case é a execução: como estruturo esse sistema em 90 dias, com os times e a cultura que vou encontrar.
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="showTab_c03(this,'t1')">Diagnóstico</button>
+  <button class="tab" onclick="showTab_c03(this,'t2')">Cronograma 90 dias</button>
+  <button class="tab" onclick="showTab_c03(this,'t3')">Gestão de Projetos</button>
+  <button class="tab" onclick="showTab_c03(this,'t4')">Estratégia e Governança</button>
+  <button class="tab" onclick="showTab_c03(this,'t5')">Entregáveis e Propostas</button>
+</div>
+
+<!-- T1 DIAGNÓSTICO -->
+<div id="t1" class="sec on">
+
+  <div class="ab ab-g"><strong>Premissa:</strong>&nbsp;"BI de TI entrega dados. IM Digital entrega decisões. São funções complementares — meu papel é transformar o dado que o BI produz em insight que a liderança consome, e garantir que os indicadores certos sejam monitorados antes que o problema apareça."</div>
+
+  <div class="card" style="border-color:var(--greenb)">
+    <div class="ct" style="color:var(--green)">Metodologia central: validar antes de automatizar</div>
+    <div class="g3">
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--green)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:4px">Semanas 1–3 — Excel</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">Construo o modelo dos 5 núcleos em Excel e valido com cada time antes de qualquer automação. O formato certo primeiro; a velocidade depois.</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--blue)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:4px">Semanas 5–6 — Power BI</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">Com o modelo validado, conecto as fontes reais. A automação segue estrutura já aprovada — não reinventa enquanto conecta.</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--purple)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:4px">Semanas 10–11 — IA</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">Automação via IA só faz sentido em processo estável. Automatizar processo quebrado só gera erro mais rápido.</div>
+      </div>
+    </div>
+    <div class="ins ins-g" style="margin-top:10px"><strong>Princípio:</strong> Imperfeito e funcionando em 2 semanas vale mais que perfeito e pronto em 3 meses.</div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ct">6 diagnósticos que proponho verificar <span class="ct-note">a confirmar na semana 1</span></div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="background:var(--red2);border:1px solid var(--redb);border-radius:var(--r);padding:8px 11px">
+          <div style="font-size:10px;font-weight:700;color:var(--red)">CRÍTICO — evidenciado pelo Case 02</div>
+          <div style="font-size:11px;font-weight:600;color:var(--t1);margin:2px 0">Ausência de P&L por canal</div>
+          <div style="font-size:10px;color:var(--t2);line-height:1.45">O conflito chegou ao VP porque nenhum time tinha margem por canal estruturada. Minha primeira pergunta: esse processo existe em algum formato?</div>
+        </div>
+        <div style="background:var(--red2);border:1px solid var(--redb);border-radius:var(--r);padding:8px 11px">
+          <div style="font-size:10px;font-weight:700;color:var(--red)">CRÍTICO — dado de funil já existe</div>
+          <div style="font-size:11px;font-weight:600;color:var(--t1);margin:2px 0">GA4 instalado, funil nunca auditado</div>
+          <div style="font-size:10px;color:var(--t2);line-height:1.45">O case descreve GA4 "subutilizado." Antes de usar, preciso auditar: os eventos estão corretos? O funil de conversão está sendo rastreado?</div>
+        </div>
+        <div style="background:var(--amber2);border:1px solid var(--amberb);border-radius:var(--r);padding:8px 11px">
+          <div style="font-size:10px;font-weight:700;color:var(--amber)">ESTRUTURAL</div>
+          <div style="font-size:11px;font-weight:600;color:var(--t1);margin:2px 0">Métricas sem definição padronizada</div>
+          <div style="font-size:10px;color:var(--t2);line-height:1.45">"Como calculamos isso?" é a pergunta que aparece em toda reunião de dados. O dicionário de métricas elimina esse atrito antes que ele paralise decisões.</div>
+        </div>
+        <div style="background:var(--amber2);border:1px solid var(--amberb);border-radius:var(--r);padding:8px 11px">
+          <div style="font-size:10px;font-weight:700;color:var(--amber)">ESTRUTURAL</div>
+          <div style="font-size:11px;font-weight:600;color:var(--t1);margin:2px 0">Sem sistema de alertas proativos</div>
+          <div style="font-size:10px;color:var(--t2);line-height:1.45">Problemas chegam como reunião de crise, não como notificação automática. O Case 02 é a prova do custo disso.</div>
+        </div>
+        <div style="background:var(--blue2);border:1px solid var(--blueb);border-radius:var(--r);padding:8px 11px">
+          <div style="font-size:10px;font-weight:700;color:var(--blue)">A VERIFICAR</div>
+          <div style="font-size:11px;font-weight:600;color:var(--t1);margin:2px 0">Jornada digital do cliente invisível</div>
+          <div style="font-size:10px;color:var(--t2);line-height:1.45">Funil de busca → seleção → pagamento não mapeado. Sem isso, qualquer decisão de budget de mídia é baseada em receita, não em comportamento.</div>
+        </div>
+        <div style="background:var(--blue2);border:1px solid var(--blueb);border-radius:var(--r);padding:8px 11px">
+          <div style="font-size:10px;font-weight:700;color:var(--blue)">A VERIFICAR</div>
+          <div style="font-size:11px;font-weight:600;color:var(--t1);margin:2px 0">NPS desconectado de decisão</div>
+          <div style="font-size:10px;color:var(--t2);line-height:1.45">NPS por viação provavelmente existe em algum formato — mas não está conectado a nenhuma decisão de malha, precificação ou canal.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct">O princípio que guia os 90 dias</div>
+      <div style="background:linear-gradient(135deg,var(--green2),var(--blue2));border:1px solid rgba(45,212,160,0.25);border-radius:var(--r2);padding:14px 16px;margin-bottom:10px">
+        <div style="font-size:14px;font-weight:700;color:var(--t1);line-height:1.65;font-style:italic">"O dado inexistente não paralisa a análise. Ele define a primeira pergunta: o que precisamos medir que ainda não medimos — e qual o custo de continuar sem essa informação?"</div>
+      </div>
+      <table class="tbl">
+        <tr><th>Time</th><th>Relação</th><th>Estratégia</th></tr>
+        <tr><td>BI de TI</td><td><span class="chip cb">Fornecedor</span></td><td>Pedidos pequenos + crédito compartilhado</td></tr>
+        <tr><td>AI & Automação</td><td><span class="chip cb">Parceiro</span></td><td>Projeto conjunto na Fase 3</td></tr>
+        <tr><td>Canais / CX Produto</td><td><span class="chip cu">Co-produtor</span></td><td>Fórum semanal conjunto</td></tr>
+        <tr><td>Comercial</td><td><span class="chip ca">Sensível</span></td><td>Dados neutros — não narrativa</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- T2 CRONOGRAMA -->
+<div id="t2" class="sec">
+
+  <div class="ab ab-b"><strong>3 fases, progressão clara:</strong>&nbsp;Fase 1 = entender o terreno e entregar resultado visível em 30 dias. Fase 2 = construir o processo recorrente. Fase 3 = escalar e posicionar IM Digital como referência de decisão.</div>
+
+  <div class="kgrid-3">
+    <div class="kcard kg"><div class="kl">Fase 1 · Dias 1–30</div><div class="kv" style="color:var(--green)">Diagnóstico</div><div class="ks up">KPI: liderança vê resultado concreto</div><div class="km">Quick win + inventário de dados</div></div>
+    <div class="kcard kb"><div class="kl">Fase 2 · Dias 31–60</div><div class="kv" style="color:var(--blue)">Construção</div><div class="ks up">KPI: report automático sem intervenção</div><div class="km">P&L Digital + Fórum Semanal</div></div>
+    <div class="kcard kp"><div class="kl">Fase 3 · Dias 61–90</div><div class="kv" style="color:var(--purple)">Escala</div><div class="ks up">KPI: 1 decisão tomada com dado IM</div><div class="km">Roadmap 6 meses aprovado</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Fase 1 — Diagnóstico e credibilidade · Dias 1–30</div>
+    <div class="tl-row"><div class="tl-sem">Sem. 1</div><div class="tl-body"><h4>Inventário de dados + 1:1 com cada time</h4><p>Mapear o que existe: sistemas, quem acessa, qual a confiabilidade. Reunião com cada time para entender o que acompanham hoje e o que gostariam de ver. Diagnóstico antes de proposta.</p></div><div class="tl-del">Mapa de fontes + dores por área</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 2</div><div class="tl-body"><h4>Auditoria do GA4 + North Star Metric</h4><p>Verificar eventos, funil de conversão e o que está sendo rastreado. Identificar com o Diretor o indicador que mais cobra — North Star Metric do time digital.</p></div><div class="tl-del">Relatório GA4 + NSM definida</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 3</div><div class="tl-body"><h4>Report MVP em Excel — modelo dos 5 núcleos</h4><p>Construo o report do Case 01 em Excel com os dados disponíveis, valido o formato com os usuários antes de qualquer automação. O modelo certo primeiro.</p></div><div class="tl-del">Report manual validado + gaps</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 4</div><div class="tl-body"><h4>Quick Win + diagnóstico formal à liderança</h4><p>Entrego um resultado visível e útil. Apresento o diagnóstico: "o que temos, o que falta e o que cada gap custa ao negócio." Capital político antes de pedir recursos.</p></div><div class="tl-del">Quick Win entregue + diagnóstico</div></div>
+    <div class="tl-qw"><strong>Quick Win — o que é:</strong> Entrega pequena e visível nos primeiros 30 dias. Não precisa ser sofisticada — precisa ser útil para quem decide. Exemplos: consolidado semanal de Reclame Aqui por viação (1 dia), alerta de NPS por e-mail quando cai abaixo do limite (2 dias), comparativo de receita por canal semana a semana (meio dia).</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Fase 2 — Construção e processos · Dias 31–60</div>
+    <div class="tl-row"><div class="tl-sem">Sem. 5–6</div><div class="tl-body"><h4>Dashboard Power BI + dicionário de métricas</h4><p>Com o modelo Excel validado, conecto as fontes reais no Power BI. O dicionário de métricas define como cada KPI é calculado — elimina "como calculamos isso?" antes que paralise reuniões.</p></div><div class="tl-del">Dashboard funcional + dicionário</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 6–7</div><div class="tl-body"><h4>Sistema de alertas + Fórum Semanal de Resultados</h4><p>Alerta automático quando NPS ou conversão cai abaixo do limite. Fórum toda segunda: 30 minutos, 3 indicadores em foco. O ritual cria a demanda por dados — que cria a cultura.</p></div><div class="tl-del">Alertas ativos + 1º fórum</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 8</div><div class="tl-body"><h4>P&L Digital por canal (2 cenários)</h4><p>O argumento do Case 02 como processo recorrente — não mais diagnóstico de crise. Canal próprio vs Terceiros com pelo menos 2 cenários de migração.</p></div><div class="tl-del">P&L Digital aprovado</div></div>
+    <div class="ins" style="margin-top:0">KPI da Fase 2: <strong>report recorrente rodando sem intervenção manual</strong>. O problema da Viação Case teria sido detectado nas semanas 5–6 se esse processo existisse.</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Fase 3 — Escala e cultura · Dias 61–90</div>
+    <div class="tl-row"><div class="tl-sem">Sem. 9–10</div><div class="tl-body"><h4>Cohort CRM + inteligência competitiva</h4><p>LTV por segmento — os 20% de clientes que geram 80% da recorrência. Benchmarking: o que Clickbus, FlixBus e Buser fazem diferente no digital e no pricing.</p></div><div class="tl-del">Segmentação + intel competitiva</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 10–11</div><div class="tl-body"><h4>1 processo automatizado via IA</h4><p>Em parceria com AI & Automação (TI): categorização automática de tickets ou resumo semanal do Reclame Aqui. Processo estável primeiro — automação depois.</p></div><div class="tl-del">1 processo em produção via IA</div></div>
+    <div class="tl-row"><div class="tl-sem">Sem. 11–12</div><div class="tl-body"><h4>Roadmap IM para 6 meses + revisão dos 90 dias</h4><p>Documento estratégico com impacto estimado em receita. Revisão dos 90 dias com accountability total — o que foi entregue, o que mudou, o que aprendi.</p></div><div class="tl-del">Roadmap aprovado + revisão 90d</div></div>
+    <div class="ins ins-p" style="margin-top:0">KPI da Fase 3: <strong>1 decisão de negócio tomada com base em análise da área de IM</strong>. Esse é o ponto de virada da cultura de dados.</div>
+  </div>
+</div>
+
+<!-- T3 GESTÃO DE PROJETOS -->
+<div id="t3" class="sec">
+
+  <div class="ab ab-g">11 entregáveis organizados por fase. Clique em qualquer card para avançar o status — a barra de progresso atualiza automaticamente. Cards com tag mostram conexão direta com Cases 01 e 02.</div>
+
+  <div style="display:flex;gap:14px;font-size:10px;color:var(--t3);margin-bottom:12px;align-items:center;flex-wrap:wrap">
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--t3);display:inline-block"></span>Planejado</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block"></span>Em andamento</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block"></span>Concluído</span>
+    <span style="margin-left:auto"><span class="chip t-c02" style="font-size:9px">→ Case 02</span> evita o próximo incidente</span>
+    <span><span class="chip t-c01" style="font-size:9px">→ Case 01</span> implementa o report funcional</span>
+  </div>
+
+  <div class="kanban">
+    <div>
+      <div class="kb-col-head kb-f1">Fase 1 · Sem. 1–4</div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 1</div><div class="kb-title">Inventário de fontes de dados</div><div class="kb-sub">Mapear o que existe, onde está, quem acessa e qual a confiabilidade de cada fonte.</div><span class="kb-tag t-c02">→ Case 02</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 1</div><div class="kb-title">1:1 com todos os times</div><div class="kb-sub">Entender dores, o que cada time acompanha hoje e o que precisam ver.</div><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 2</div><div class="kb-title">Auditoria completa do GA4</div><div class="kb-sub">Verificar eventos, funil de conversão e o que está sendo rastreado de verdade.</div><span class="kb-tag t-c02">→ Case 02</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 3</div><div class="kb-title">Report MVP — Excel 5 núcleos</div><div class="kb-sub">Modelo do Case 01 em Excel para validar o formato com os usuários antes de automatizar.</div><span class="kb-tag t-c01">→ Case 01</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 4</div><div class="kb-title">Quick Win + diagnóstico formal</div><div class="kb-sub">Entrega visível à liderança + apresentação do diagnóstico com custo de cada gap.</div><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+    </div>
+    <div>
+      <div class="kb-col-head kb-f2">Fase 2 · Sem. 5–8</div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 5–6</div><div class="kb-title">Dashboard Power BI automático</div><div class="kb-sub">Report dos 5 núcleos conectado às fontes reais. Sem intervenção manual.</div><span class="kb-tag t-c01">→ Case 01</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 5–6</div><div class="kb-title">Dicionário de métricas</div><div class="kb-sub">Definição padronizada de cada KPI — elimina "como calculamos isso?"</div><span class="kb-tag t-c01">→ Case 01</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 6–7</div><div class="kb-title">Sistema de alertas automáticos</div><div class="kb-sub">Alerta quando NPS ou conversão cai. Detecta o próximo Case 02 automaticamente.</div><span class="kb-tag t-c02">→ Case 02</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 7</div><div class="kb-title">Fórum Semanal de Resultados</div><div class="kb-sub">Ritual toda segunda: 30 min, 3 indicadores. O ritual cria a cultura de dados.</div><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 8</div><div class="kb-title">P&L Digital por canal</div><div class="kb-sub">O argumento do Case 02 como rotina recorrente — não mais diagnóstico de crise.</div><span class="kb-tag t-c02">→ Case 02</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+    </div>
+    <div>
+      <div class="kb-col-head kb-f3">Fase 3 · Sem. 9–12</div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 9–10</div><div class="kb-title">Cohort CRM — LTV por segmento</div><div class="kb-sub">20% dos clientes geram 80% da recorrência. Onde está o valor real de fidelização?</div><span class="kb-tag t-c01">→ Case 01</span><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 9–10</div><div class="kb-title">Benchmarking competitivo</div><div class="kb-sub">O que Clickbus, FlixBus e Buser fazem diferente em digital e pricing.</div><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 10–11</div><div class="kb-title">1 processo automatizado via IA</div><div class="kb-sub">Com AI & Automação TI: categorização de tickets ou resumo Reclame Aqui.</div><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+      <div class="kb-card" onclick="cycleStatus_c03(this)"><div class="kb-status s-plan"></div><div class="kb-week">Sem. 12</div><div class="kb-title">Roadmap IM — 6 meses</div><div class="kb-sub">Impacto em receita estimado. O que a área entrega hoje vs em 6 meses.</div><div class="kb-progress"><div class="kb-progress-fill" style="width:0%;background:var(--t3)"></div></div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:9px 13px;background:var(--bg3);border-radius:var(--r2);border:1px solid var(--b1);font-size:10px;color:var(--t3);line-height:1.6">
+    Cards com <span class="chip t-c02" style="font-size:9px">→ Case 02</span> constroem a infraestrutura que evitaria o problema da Viação Case. Cards com <span class="chip t-c01" style="font-size:9px">→ Case 01</span> implementam o report do Case 01 como processo recorrente. Os 3 cases são um único plano: diagnóstico → sistema → execução.
+  </div>
+</div>
+
+<!-- T4 ESTRATÉGIA E GOVERNANÇA -->
+<div id="t4" class="sec">
+
+  <div class="ab ab-p"><strong>Dois argumentos que definem o mandato da área:</strong>&nbsp;Como opero sem autoridade direta sobre os times técnicos — e por que IM Digital existe além do BI de TI que já está estruturado.</div>
+
+  <div class="card">
+    <div class="ct">5 estratégias de gestão por influência</div>
+    <table class="tbl">
+      <tr><th>Estratégia</th><th>Como aplico</th><th>Resultado</th></tr>
+      <tr><td><strong>Quick wins compartilhados</strong></td><td>O primeiro entregável é apresentado como construção conjunta com o BI de TI — independente do volume de contribuição. Aliados se constroem no crédito compartilhado.</td><td><span class="chip cu">Aliado, não obstáculo</span></td></tr>
+      <tr><td><strong>Pedidos pequenos primeiro</strong></td><td>Começo pedindo uma query em CSV — não uma integração. Pedidos com escopo pequeno e impacto justificado passam pela triagem de "estamos sobrecarregados".</td><td><span class="chip cu">Resposta mais rápida</span></td></tr>
+      <tr><td><strong>Problema antes da solução</strong></td><td>Apresento o impacto ao negócio antes de pedir o dado: "sem X, a decisão Y que o Diretor precisa fica bloqueada." A urgência é do negócio — não da área de IM.</td><td><span class="chip cu">Prioridade orgânica</span></td></tr>
+      <tr><td><strong>Capital político da liderança</strong></td><td>Quando o Diretor menciona publicamente que precisa de um indicador, a priorização acontece de forma natural. Uso com moderação — capital político não é infinito.</td><td><span class="chip ca">Uso estratégico</span></td></tr>
+      <tr><td><strong>Construção paralela</strong></td><td>Enquanto o dado oficial não chega, construo em Excel com o que existe. O sistema não para por dependência de um único time.</td><td><span class="chip cu">Entrega sem bloqueio</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="ct">IM Digital vs BI de TI — funções complementares</div>
+    <div class="cg">
+      <div class="cg-head"></div>
+      <div class="cg-head" style="color:var(--t3)">BI de TI</div>
+      <div class="cg-head" style="color:var(--blue)">IM Digital (esta posição)</div>
+      <div class="cg-label">Foco</div><div class="cg-cell cg-bi">Infraestrutura e confiabilidade de dados</div><div class="cg-cell cg-im">Insight e decisão de negócio</div>
+      <div class="cg-label">Velocidade</div><div class="cg-cell cg-bi">Ciclos longos — demanda → entrega</div><div class="cg-cell cg-im">Análise contínua e proativa</div>
+      <div class="cg-label">Audiência</div><div class="cg-cell cg-bi">Times técnicos e sistemas</div><div class="cg-cell cg-im">Liderança comercial e C-level</div>
+      <div class="cg-label">Output</div><div class="cg-cell cg-bi">Relatório de dados</div><div class="cg-cell cg-im">Recomendação de ação com impacto em R$</div>
+      <div class="cg-label">Iniciativa</div><div class="cg-cell cg-bi">Reativa — atende demandas recebidas</div><div class="cg-cell cg-im">Proativa — antecipa o problema antes do VP</div>
+    </div>
+    <div class="ins ins-p" style="margin-top:10px"><strong>Síntese:</strong> "O BI de TI me dá o dado. Eu transformo o dado em pergunta respondida para quem precisa decidir. São funções complementares — e hoje o Grupo Guanabara tem uma com qualidade e a outra quase inexistente. O Case 02 é a prova mais direta disso."</div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Interno vs delegar — critério de decisão</div>
+      <table class="tbl">
+        <tr><th>Tarefa</th><th>Quem faz</th><th>Critério</th></tr>
+        <tr><td>Inventário de dados</td><td><span class="chip cu">Interno</span></td><td>Só IM sabe o que perguntar</td></tr>
+        <tr><td>Queries e extração</td><td><span class="chip cb">BI TI</span></td><td>Acesso e expertise técnica</td></tr>
+        <tr><td>Report MVP Excel</td><td><span class="chip cu">Interno</span></td><td>Velocidade — 2 semanas</td></tr>
+        <tr><td>Dashboard Power BI</td><td><span class="chip cn">Híbrido</span></td><td>Estrutura IM + dados BI TI</td></tr>
+        <tr><td>Automação IA</td><td><span class="chip cb">AI & Auto TI</span></td><td>Especialidade técnica</td></tr>
+        <tr><td>Análise e recomendação</td><td><span class="chip cu">Interno</span></td><td>IM Digital é dono do insight</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">Priorização por horizonte</div>
+      <table class="tbl">
+        <tr><th>Horizonte</th><th>Foco</th><th>Pergunta guia</th></tr>
+        <tr><td><span class="chip cu">30 dias</span></td><td>Quick win + diagnóstico</td><td>O que o Diretor mais precisa ver agora?</td></tr>
+        <tr><td><span class="chip cb">60 dias</span></td><td>Processo recorrente</td><td>O que elimina trabalho manual?</td></tr>
+        <tr><td><span class="chip cp">90 dias</span></td><td>1 decisão com dado IM</td><td>O que muda o comportamento da liderança?</td></tr>
+        <tr><td><span class="chip cn">6 meses</span></td><td>Mandato estratégico</td><td>O que torna IM Digital irreversível?</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- T5 ENTREGÁVEIS E PROPOSTAS -->
+<div id="t5" class="sec">
+
+  <div class="ab ab-b">Entregáveis dos 90 dias com conexão explícita aos Cases 01 e 02 — mais as propostas que identifico além do escopo original dos cases, baseadas em análise própria.</div>
+
+  <!-- CONEXÃO COM OS CASES -->
+  <div class="card" style="border-color:var(--blueb)">
+    <div class="ct" style="color:var(--blue)">Como os 90 dias conectam os 3 cases</div>
+    <div class="g3">
+      <div style="background:var(--red2);border:1px solid var(--redb);border-radius:var(--r);padding:10px 12px">
+        <div style="font-size:10px;font-weight:700;color:var(--red);margin-bottom:4px">CASE 02 como ponto de partida</div>
+        <div style="font-size:11px;color:var(--t2);line-height:1.5">O problema da Viação Case define as prioridades dos 90 dias. GA4 (sem. 2), alertas (sem. 6) e P&L por canal (sem. 8) existem para que esse conflito nunca mais chegue ao VP sem diagnóstico prévio.</div>
+      </div>
+      <div style="background:var(--blue2);border:1px solid var(--blueb);border-radius:var(--r);padding:10px 12px">
+        <div style="font-size:10px;font-weight:700;color:var(--blue);margin-bottom:4px">CASE 01 como entregável recorrente</div>
+        <div style="font-size:11px;color:var(--t2);line-height:1.5">O report dos 5 núcleos não é exercício — é o entregável das semanas 3 (Excel), 5–6 (Power BI) e 7 (Fórum). Em 60 dias, o Case 01 está em produção contínua.</div>
+      </div>
+      <div style="background:var(--green2);border:1px solid var(--greenb);border-radius:var(--r);padding:10px 12px">
+        <div style="font-size:10px;font-weight:700;color:var(--green);margin-bottom:4px">CASE 03 como execução</div>
+        <div style="font-size:11px;color:var(--t2);line-height:1.5">Os 90 dias constroem a infraestrutura que torna Cases 01 e 02 operacionais e contínuos — não análises pontuais. Com entregáveis, donos e prazos.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABELA DE ENTREGÁVEIS -->
+  <div class="card">
+    <div class="ct">Entregáveis por fase — dono, prazo e conexão</div>
+    <table class="tbl">
+      <tr><th>Fase</th><th>Sem.</th><th>Entregável</th><th>Dono</th><th>Dependência</th><th>Conexão</th></tr>
+      <tr><td><span class="chip cu">F1</span></td><td>1</td><td>Inventário de fontes de dados</td><td>IM Digital</td><td>Nenhuma</td><td><span class="chip t-c02" style="font-size:9px">Case 02</span></td></tr>
+      <tr><td><span class="chip cu">F1</span></td><td>2</td><td>Auditoria GA4 — funil de conversão</td><td>IM Digital + CX/Produto</td><td>Acesso GA4</td><td><span class="chip t-c02" style="font-size:9px">Case 02</span></td></tr>
+      <tr><td><span class="chip cu">F1</span></td><td>3</td><td>Report MVP Excel — 5 núcleos</td><td>IM Digital</td><td>Queries básicas BI TI</td><td><span class="chip t-c01" style="font-size:9px">Case 01</span></td></tr>
+      <tr><td><span class="chip cu">F1</span></td><td>4</td><td>Quick Win + diagnóstico formal</td><td>IM Digital</td><td>Acesso ferramentas</td><td>Credibilidade</td></tr>
+      <tr><td><span class="chip cb">F2</span></td><td>5–6</td><td>Dashboard Power BI automático</td><td>IM Digital + BI TI</td><td>Conexão de dados</td><td><span class="chip t-c01" style="font-size:9px">Case 01</span></td></tr>
+      <tr><td><span class="chip cb">F2</span></td><td>5–6</td><td>Dicionário de métricas</td><td>IM Digital</td><td>Validação times</td><td><span class="chip t-c01" style="font-size:9px">Case 01</span></td></tr>
+      <tr><td><span class="chip cb">F2</span></td><td>6–7</td><td>Sistema de alertas automáticos</td><td>IM Digital + BI TI</td><td>GA4 ou bilhetagem</td><td><span class="chip t-c02" style="font-size:9px">Case 02</span></td></tr>
+      <tr><td><span class="chip cb">F2</span></td><td>7</td><td>Fórum Semanal de Resultados</td><td>IM Digital</td><td>Agenda dos times</td><td>Cultura</td></tr>
+      <tr><td><span class="chip cb">F2</span></td><td>8</td><td>P&L Digital por canal</td><td>IM Digital</td><td>Dados receita e custo</td><td><span class="chip t-c02" style="font-size:9px">Case 02</span></td></tr>
+      <tr><td><span class="chip cp">F3</span></td><td>9–10</td><td>Cohort CRM — LTV por segmento</td><td>IM Digital + CRM</td><td>Base Viva Fidelidade</td><td><span class="chip t-c01" style="font-size:9px">Case 01</span></td></tr>
+      <tr><td><span class="chip cp">F3</span></td><td>10–11</td><td>1 processo automatizado via IA</td><td>IM Digital + AI & Auto TI</td><td>Parceria TI</td><td>Escala</td></tr>
+      <tr><td><span class="chip cp">F3</span></td><td>12</td><td>Roadmap IM — 6 meses com impacto R$</td><td>IM Digital</td><td>Aprovação Diretor</td><td>Mandato estratégico</td></tr>
+    </table>
+  </div>
+
+  <!-- PROPOSTAS ALÉM DOS CASES -->
+  <div class="card" style="border-color:var(--amberb)">
+    <div class="ct" style="color:var(--amber)">★ Propostas que identifico além do escopo original dos cases</div>
+    <div class="ab ab-a" style="margin-bottom:10px">Estes itens não foram solicitados nos cases. Surgem da análise dos dados e do contexto do negócio — e representam as alavancas de maior impacto que vejo além do que foi pedido.</div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--amber)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px">CPF como chave de correlação — Customer 360</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">GA4, CRM, bilhetagem e call center não se falam. A chave que os une é o CPF do passageiro. Sem ela, dados ficam em silos mesmo com ferramentas caras. Com ela, construímos visão única do cliente digital Guanabara — base para qualquer análise de fidelização.</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:3px">Fase 3 · Parceria CRM + TI · Critério de sucesso: % de compras com CPF identificado</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--amber)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px">Viva Fidelidade como instrumento de migração de canal — sem desconto</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">O programa tem mais de 1 milhão de usuários. Acúmulo de pontos no canal próprio reduz dependência de marketplaces sem ceder margem em desconto. É a estratégia de migração de canal de menor custo disponível — e ainda não está sendo monitorada por canal.</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:3px">Fase 2 semana 7 · Fonte: CRM · KPI: share Terceiros vs próprio segmentado por usuários Viva</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--amber)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px">Monitoramento de preços competitivos — Clickbus e Buser</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">Diesel é o segundo maior custo operacional do setor. Um script simples de scraping de preços dos concorrentes nas mesmas rotas gera alertas quando a tarifa da Guanabara se afasta do benchmark — proteção de margem em tempo real sem projecto de TI.</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:3px">Fase 3 · Script Python ou Power Automate · Integração com bilhetagem</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--amber)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px">NRR — crescimento orgânico da base ativa sem novas aquisições</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">Net Revenue Retention da base ativa: a base que já existe está comprando mais, igual ou menos que no ano anterior? Um NRR acima de 100% significa que a empresa cresce sem precisar de novos clientes — e custa zero em mídia.</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:3px">Fase 2 · Cálculo via CRM · Complementa o LTV por segmento</div>
+      </div>
+      <div style="background:var(--bg4);border-radius:var(--r);padding:10px 12px;border-left:3px solid var(--amber)">
+        <div style="font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px">Load Factor digital por rota — qual canal vende mais em qual rota</div>
+        <div style="font-size:10px;color:var(--t2);line-height:1.5">Taxa de ocupação dos ônibus segmentada por canal de venda. Responde a pergunta do Case 02: o volume offline caiu porque o ônibus está vazio (problema de malha) ou porque o passageiro comprou pelo Clickbus (problema de canal)? Esse dado existe na bilhetagem — só precisa ser extraído com a granularidade certa.</div>
+        <div style="font-size:10px;color:var(--t3);margin-top:3px">Fase 1 semana 4 · Query no BI TI · Dado existe na bilhetagem</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div style="background:linear-gradient(135deg,var(--green2),var(--blue2));border:1px solid rgba(45,212,160,0.3);border-radius:var(--r2);padding:16px 18px;margin-top:2px">
+    <div style="font-size:14px;font-weight:700;color:var(--green);margin-bottom:8px">CTA — fechando o arco dos 3 cases</div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.7">O Case 02 mostrou o problema que existe hoje. O Case 01 mostrou o sistema que detectaria esse problema automaticamente. Este case são os primeiros 90 dias de como construo esse sistema — com entregáveis, donos e prazos. Quero ser cobrado por isso.<br><br>
+    <strong style="color:var(--t1);font-size:13px">"O dado que não existe não paralisa. Ele define a primeira pergunta."</strong><br><br>
+    E a primeira pergunta, na segunda-feira, é: acesso de leitura ao GA4 e a taxa contratual de comissão do canal Terceiros. Nenhum dos dois depende de projeto de TI.</div>
+  </div>
+</div>
+
+<!-- GUIA — apenas para preparação pessoal -->
+<div class="guide-toggle" onclick="toggleGuide_c03(this)">
+  <h3>📊 Glossário — termos e conceitos deste plano</h3>
+  <span id="guide-arrow-c03">▼ expandir</span>
+</div>
+<div class="guide-body" id="guide-body-c03">
+  <div class="gtab"><div class="gtab-title">Conceitos do plano de 90 dias</div>
+    <div class="gm info"><div class="gm-name">Quick Win</div><div class="gm-desc">Entrega pequena, visível e útil nos primeiros 30 dias — antes do sistema completo estar pronto. O objetivo não é sofisticação técnica, mas demonstrar capacidade de entrega e construir credibilidade com a liderança antes de solicitar acesso a dados e recursos maiores. Exemplos: consolidado semanal de Reclame Aqui por viação, alerta de NPS por e-mail, comparativo de receita por canal semana a semana.</div></div>
+    <div class="gm info"><div class="gm-name">North Star Metric (NSM)</div><div class="gm-desc">O único indicador que melhor representa o progresso do time digital em direção ao seu objetivo principal. Para o time digital do Grupo Guanabara, a candidata mais forte é o Share Digital Próprio — percentual da receita total que entra pelo canal sem comissão. Se cresce: margem, dados de cliente e fidelização caminham juntos.</div></div>
+    <div class="gm info"><div class="gm-name">Dicionário de Métricas</div><div class="gm-desc">Documento que define como cada KPI é calculado: numerador, denominador, fonte de dados, frequência e responsável. Elimina discussões recorrentes sobre "como calculamos isso?" em reuniões — o maior desperdício de tempo em times com cultura de dados imatura.</div></div>
+    <div class="gm info"><div class="gm-name">Fórum Semanal de Resultados</div><div class="gm-desc">Ritual de gestão: reunião fixa de 30 minutos toda segunda-feira, com 3 indicadores em foco. O ritual cria demanda por dados — que gradualmente cria a cultura de dados. Um dashboard sem ritual de revisão é uma pasta que ninguém abre.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">Kanban — status dos entregáveis</div>
+    <div class="gm ok"><div class="gm-name">🟢 Concluído</div><div class="gm-desc">Entregável finalizado, validado com a liderança e em operação. Clique no card para alternar entre status. Barra verde preenchida indica conclusão.</div></div>
+    <div class="gm warn"><div class="gm-name">🟡 Em andamento</div><div class="gm-desc">Entregável em execução — dependências ativas, trabalho em progresso. Barra âmbar indica execução parcial.</div></div>
+    <div class="gm info"><div class="gm-name">🔘 Planejado</div><div class="gm-desc">Entregável na fila — aguardando fase anterior ou dependência externa. Barra cinza indica não iniciado.</div></div>
+    <div class="gm crit"><div class="gm-name">Tag → Case 02</div><div class="gm-desc">O entregável constrói a infraestrutura que evitaria o problema identificado no Case 02 (Viação Case). GA4 auditado, alertas automáticos e P&L por canal são os três entregáveis mais diretamente conectados.</div></div>
+    <div class="gm info"><div class="gm-name">Tag → Case 01</div><div class="gm-desc">O entregável implementa o report funcional proposto no Case 01 como processo recorrente — não como análise pontual. Report MVP Excel, dashboard Power BI, dicionário de métricas e Fórum Semanal são os pilares do Case 01 em produção.</div></div>
+  </div>
+  <div class="gtab"><div class="gtab-title">Estratégia e Governança</div>
+    <div class="gm info"><div class="gm-name">Gestão por influência</div><div class="gm-desc">Modelo de liderança aplicado quando não há autoridade formal sobre times técnicos (BI de TI, AI & Automação). Consiste em construir capital político via entregáveis compartilhados, fazer pedidos pequenos com impacto justificado, e demonstrar o custo do problema antes de pedir a solução.</div></div>
+    <div class="gm info"><div class="gm-name">IM Digital vs BI de TI — distinção</div><div class="gm-desc">BI de TI: foco em infraestrutura de dados, ciclos longos, audiência técnica, output = relatório. IM Digital: foco em decisão de negócio, análise contínua, audiência = liderança comercial, output = recomendação com impacto em R$. Funções complementares — não concorrentes.</div></div>
+    <div class="gm info"><div class="gm-name">CPF como chave de correlação (Customer 360)</div><div class="gm-desc">O CPF do passageiro é o identificador que conecta GA4 (comportamento de navegação), CRM (histórico de compra), bilhetagem (canal de venda) e call center (atendimento). Sem essa chave definida, os dados de cada sistema ficam em silos isolados — impossibilitando análises de fidelização e jornada completa do cliente.</div></div>
+    <div class="gm info"><div class="gm-name">NRR (Net Revenue Retention)</div><div class="gm-desc">Crescimento de receita gerado pela base de clientes existente, sem contar novas aquisições. NRR acima de 100% significa que a empresa cresceria mesmo sem adquirir nenhum cliente novo — o melhor indicador de saúde de longo prazo de uma base CRM.</div></div>
+    <div class="gm info"><div class="gm-name">Load Factor Digital por Rota</div><div class="gm-desc">Percentual de assentos vendidos via canal digital (próprio + terceiros) em relação à capacidade total ofertada por rota. Permite identificar se a queda de share offline é porque o ônibus está vazio (problema de malha) ou porque o passageiro migrou para outro canal (problema de canalização).</div></div>
+<script>Chart.register(ChartDataLabels);var _pi={};function showPortal(w){document.querySelectorAll(".case-panel").forEach(function(p){p.classList.remove("active");});document.querySelectorAll(".portal-tab").forEach(function(t){t.className="portal-tab";});document.getElementById("panel-"+w).classList.add("active");var tb=document.getElementById("tab-"+w);if(tb)tb.classList.add("act-"+w);window.scrollTo(0,0);if(!_pi[w]){_pi[w]=true;if(w==="c02"&&typeof initC02Charts==="function")setTimeout(initC02Charts,150);if(w==="c01"&&typeof initC01Charts==="function")setTimeout(initC01Charts,150);}}</script>
+<script>
+
+
+const _W2='rgba(255,255,255,0.9)', _g2='rgba(255,255,255,0.06)', _t2='rgba(255,255,255,0.45)';
+const _C2={b:'#4D9EFF',b2:'#1A5FCC',g1:'#2DD4A0',g2:'#0F6E56',r:'#FF5E5E',a:'#FFB547',p:'#A78BFA'};
+const _DL2={datalabels:{display:false}};
+const _base2={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},..._DL2},scales:{x:{grid:{color:_g2},ticks:{color:_t2,font:{size:10}}},y:{grid:{color:_g2},ticks:{color:_t2,font:{size:10}}}}};
+
+let _curP2='ja', _curF2='vc';
+let _charts2={};
+
+// ── DATA ──────────────────────────────────────────────────────
+const _PDATA2 = {
+  ja:{
+    info:'Jan-Abr 2026 · Viação Case',
+    kRec:{v:'R$2,4M',s:'<span class="up">+1,2% YoY</span>',m:'Grupo: +2,3% YoY'},
+    kDp:{v:'R$747k',s:'<span class="dn">+3,2% Viação Case vs grupo +10,9%</span>',m:'Gap: -7,7pp ↑ piorando'},
+    kDt:{v:'R$816k',s:'<span class="al">TM R$127 vs grupo R$143</span>',m:'Gap preço: -R$15,25/tkt'},
+    kOff:{v:'R$836k',s:'<span class="dn">-8,8% Vol e Preço juntos</span>',m:'Share: 44,2% → 34,8% em 1 ano'},
+    table:{
+      off:['R$836k','-8,8%','8.125','-3,8%','R$102,85','-5,1%','-3,8pp'],
+      dp:['R$747k','+3,2%','5.788','+3,7%','R$129,07','-0,4%','+0,6pp'],
+      dt:['R$816k','+11,6%','6.406','+10,7%','R$127,41','+0,8%','+3,2pp'],
+      tot:['R$2,4M','+1,2%','20.319','+2,5%','R$118,06','-1,3%']
+    },
+    divVC:[-8.8, 3.2, 11.6],
+    divGR:[-1.6, 10.9, 6.4],
+    spkRec:[0.58,0.61,0.59,0.60,3.5,3.7,3.8,2.4],
+    spkDp:[0.18,0.20,0.21,0.22,1.1,1.2,1.14,0.75],
+    spkDt:[0.17,0.18,0.19,0.20,1.1,1.1,1.05,0.82],
+    spkOff:[0.23,0.23,0.19,0.18,1.5,1.4,1.48,0.84],
+    tmVC:[102.85,129.07,127.41],
+    tmGR:[104.97,131.67,142.66]
+  },
+  jd:{
+    info:'Jul-Dez 2025 · Viação Case',
+    kRec:{v:'R$3,8M',s:'<span class="up">+2,6% YoY</span>',m:'Grupo: +1,6% YoY'},
+    kDp:{v:'R$1,14M',s:'<span class="dn">+2,4% vs grupo +6,8%</span>',m:'Gap: -4,5pp ↑ piorando'},
+    kDt:{v:'R$1,19M',s:'<span class="al">TM R$130 vs grupo R$144</span>',m:'Gap preço: -R$14,15/tkt'},
+    kOff:{v:'R$1,48M',s:'<span class="dn">-10,1% receita, -13,2% vol</span>',m:'Share: 49,6% → 38,8% em 1 per.'},
+    table:{
+      off:['R$1,48M','-10,1%','12.989','-13,2%','R$113,60','+3,5%','-5,5pp'],
+      dp:['R$1,14M','+2,4%','8.192','+2,3%','R$138,87','+0,0%','-0,1pp'],
+      dt:['R$1,19M','+24,5%','9.166','+30,2%','R$130,26','-4,4%','+5,5pp'],
+      tot:['R$3,8M','+2,6%','30.347','+1,1%','R$125,45','+1,4%']
+    },
+    divVC:[-10.1, 2.4, 24.5],
+    divGR:[-3.0, 6.8, 13.4],
+    spkRec:[0.50,0.55,0.60,0.58,0.56,0.58,0.64,3.8],
+    spkDp:[0.16,0.17,0.18,0.19,0.19,0.20,0.20,1.14],
+    spkDt:[0.15,0.16,0.17,0.18,0.17,0.17,0.19,1.19],
+    spkOff:[0.19,0.20,0.25,0.21,0.22,0.21,0.24,1.48],
+    tmVC:[113.60,138.87,130.26],
+    tmGR:[109.73,136.70,144.41]
+  }
+};
+
+function setPeriod_c02(p,btn){
+  document.querySelectorAll('.pb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); _curP2=p;
+  updateCtrlInfo();
+  Object.values(_charts2).forEach(c=>{try{c.destroy()}catch(e){}});
+  _charts2={};
+  updateKPIs();
+  updateTable();
+  renderLollipop();
+  setTimeout(function(){var _p=document.getElementById('panel-c02');var _a=_p?_p.querySelector('.sec.on'):null;buildCharts(_a?_a.id:'t1');},80);
+}
+
+function setFocus_c02(f,btn){
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); _curF2=f;
+  updateCtrlInfo();
+}
+
+function updateCtrlInfo(){
+  const d=_PDATA2[_curP2];
+  document.getElementById('ctrl-info-c02').textContent=d.info+' · '+(_curF2==='vc'?'Viação Case isolada':'Comparativo VC vs Grupo');
+  document.getElementById('period-label').textContent=d.info;
+}
+
+function updateKPIs(){
+  const d=_PDATA2[_curP2];
+  document.getElementById('k-rec').textContent=d.kRec.v;
+  document.getElementById('k-rec-s').innerHTML=d.kRec.s;
+  document.getElementById('k-rec-m').textContent=d.kRec.m;
+  document.getElementById('k-dp').textContent=d.kDp.v;
+  document.getElementById('k-dp-s').innerHTML=d.kDp.s;
+  document.getElementById('k-dt').textContent=d.kDt.v;
+  document.getElementById('k-dt-s').innerHTML=d.kDt.s;
+  document.getElementById('k-dt').style.color=_curP2==='jd'?'var(--amber)':'var(--amber)';
+  document.getElementById('k-off').textContent=d.kOff.v;
+  document.getElementById('k-off-s').innerHTML=d.kOff.s;
+}
+
+function updateTable(){
+  const d=_PDATA2[_curP2].table;
+  const setRow=(ids,vals)=>ids.forEach((id,i)=>{if(document.getElementById(id))document.getElementById(id).textContent=vals[i];});
+  const chip=(v,positive)=>{const up=v.startsWith('+');const c=up?'cu':v.startsWith('-')?'cd':'cn';return `<span class="chip ${c}">${v}</span>`;};
+
+  document.getElementById('d-off-rec').textContent=d.off[0];
+  document.getElementById('d-off-rv').className=d.off[1].startsWith('-')?'chip cd':'chip cu';
+  document.getElementById('d-off-rv').textContent=d.off[1];
+  document.getElementById('d-off-vol').textContent=d.off[2];
+  document.getElementById('d-off-vv').className=d.off[3].startsWith('-')?'chip cd':'chip cu';
+  document.getElementById('d-off-vv').textContent=d.off[3];
+  document.getElementById('d-off-tm').textContent=d.off[4];
+  document.getElementById('d-off-tv').className=d.off[5].startsWith('-')?'chip cd':'chip cu';
+  document.getElementById('d-off-tv').textContent=d.off[5];
+  document.getElementById('d-off-sh').textContent=d.off[6];
+
+  document.getElementById('d-dp-rec').textContent=d.dp[0];
+  document.getElementById('d-dp-rv').className=d.dp[1].startsWith('+')?'chip cu':'chip cd';
+  document.getElementById('d-dp-rv').textContent=d.dp[1];
+  document.getElementById('d-dp-vol').textContent=d.dp[2];
+  document.getElementById('d-dp-vv').className=d.dp[3].startsWith('+')?'chip cu':'chip cd';
+  document.getElementById('d-dp-vv').textContent=d.dp[3];
+  document.getElementById('d-dp-tm').textContent=d.dp[4];
+  document.getElementById('d-dp-tv').className=d.dp[5].startsWith('+')||d.dp[5]==='0,0%'?'chip cn':'chip cd';
+  document.getElementById('d-dp-tv').textContent=d.dp[5];
+  document.getElementById('d-dp-sh').textContent=d.dp[6];
+
+  document.getElementById('d-dt-rec').textContent=d.dt[0];
+  document.getElementById('d-dt-rv').className='chip cu';
+  document.getElementById('d-dt-rv').textContent=d.dt[1];
+  document.getElementById('d-dt-vol').textContent=d.dt[2];
+  document.getElementById('d-dt-vv').className='chip cu';
+  document.getElementById('d-dt-vv').textContent=d.dt[3];
+  document.getElementById('d-dt-tm').textContent=d.dt[4];
+  document.getElementById('d-dt-tv').className=d.dt[5].startsWith('-')?'chip cd':'chip cn';
+  document.getElementById('d-dt-tv').textContent=d.dt[5];
+  document.getElementById('d-dt-sh').textContent=d.dt[6];
+
+  document.getElementById('d-tot-rec').innerHTML=`<strong>${d.tot[0]}</strong>`;
+  document.getElementById('d-tot-rv').textContent=d.tot[1];
+  document.getElementById('d-tot-vol').innerHTML=`<strong>${d.tot[2]}</strong>`;
+  document.getElementById('d-tot-vv').textContent=d.tot[3];
+  document.getElementById('d-tot-tm').innerHTML=`<strong>${d.tot[4]}</strong>`;
+  document.getElementById('d-tot-tv').textContent=d.tot[5];
+}
+
+function renderLollipop(){
+  const d=_PDATA2[_curP2];
+  const canais=['Offline','Digital Próprio','Digital Terceiros'];
+  const colors=[_C2.r,_C2.b,_C2.a];
+  const minTM=Math.min(...d.tmVC,...d.tmGR)*0.92;
+  const maxTM=Math.max(...d.tmVC,...d.tmGR)*1.05;
+  const range=maxTM-minTM;
+
+  function mkRow(c,i){
+    const vc=d.tmVC[i], gr=d.tmGR[i];
+    const pvc=((vc-minTM)/range*100).toFixed(1);
+    const pgr=((gr-minTM)/range*100).toFixed(1);
+    const col=colors[i];
+    const gap=Math.abs(gr-vc).toFixed(2);
+    const lo=Math.min(parseFloat(pvc),parseFloat(pgr));
+    const hi=Math.max(parseFloat(pvc),parseFloat(pgr));
+    const midPct=((lo+hi)/2).toFixed(1);
+    // Gap label built WITHOUT nested template literals
+    const gapLabel = Math.abs(hi-lo)>8
+      ? '<div style="position:absolute;top:50%;left:'+midPct+'%;transform:translate(-50%,-50%);font-size:9px;font-weight:700;background:'+col+'22;color:'+col+';padding:1px 5px;border-radius:4px;white-space:nowrap;z-index:3;border:1px solid '+col+'44">-R$'+gap+'</div>'
+      : '';
+    return '<div style="display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center;margin-bottom:14px">'
+      + '<div style="font-size:12px;font-weight:600;color:var(--t2);text-align:right">'+c+'</div>'
+      + '<div style="position:relative;height:36px">'
+      + '<div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--b1);transform:translateY(-50%)"></div>'
+      + '<div style="position:absolute;top:50%;left:'+lo+'%;width:'+(hi-lo)+'%;height:3px;background:'+col+'33;transform:translateY(-50%);border-radius:2px"></div>'
+      + '<div style="position:absolute;top:50%;left:0;width:'+pvc+'%;height:2px;background:'+col+'66;transform:translateY(-50%)"></div>'
+      + '<div style="position:absolute;top:50%;left:'+pvc+'%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:'+col+';border:2px solid var(--bg);z-index:2"></div>'
+      + '<div style="position:absolute;top:50%;left:'+pgr+'%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:var(--bg3);border:2.5px solid '+col+';z-index:2"></div>'
+      + '<div style="position:absolute;top:calc(50% + 10px);left:'+pvc+'%;transform:translateX(-50%);font-size:10px;font-weight:700;color:'+col+';white-space:nowrap;font-family:\'DM Mono\',monospace">R$'+vc.toFixed(0)+'</div>'
+      + '<div style="position:absolute;bottom:calc(50% + 10px);left:'+pgr+'%;transform:translateX(-50%);font-size:10px;font-weight:600;color:'+col+';opacity:0.7;white-space:nowrap;font-family:\'DM Mono\',monospace">R$'+gr.toFixed(0)+'</div>'
+      + gapLabel
+      + '</div></div>';
+  }
+
+  const header = '<div style="display:grid;grid-template-columns:110px 1fr;gap:0;align-items:end;margin-bottom:6px;padding:0 4px">'
+    + '<div></div>'
+    + '<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--t3);padding:0 2px;margin-bottom:4px">'
+    + '<span>R$'+Math.round(minTM)+'</span>'
+    + '<span>R$'+Math.round((minTM+maxTM)/2)+'</span>'
+    + '<span>R$'+Math.round(maxTM)+'</span>'
+    + '</div></div>';
+
+  const rows = canais.map((c,i)=>mkRow(c,i)).join('');
+
+  const legend = '<div style="display:grid;grid-template-columns:110px 1fr;gap:8px;margin-top:4px">'
+    + '<div></div>'
+    + '<div style="display:flex;align-items:center;gap:16px;font-size:10px;color:var(--t3)">'
+    + '<span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:var(--t2);display:inline-block"></span>Viação Case (valor abaixo)</span>'
+    + '<span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:50%;background:transparent;border:2px solid var(--t2);display:inline-block"></span>Grupo (valor acima)</span>'
+    + '<span style="margin-left:auto;color:var(--amber)">Rótulo central = gap R$ entre os dois</span>'
+    + '</div></div>';
+
+  document.getElementById('lollipop-container').innerHTML = header + rows + legend;
+}
+
+function showTab_c02(el,id){
+  document.querySelectorAll('.tab').forEach(_t2=>_t2.classList.remove('on'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  el.classList.add('on'); document.getElementById(id).classList.add('on');
+  setTimeout(()=>buildCharts(id),80);
+}
+
+function toggleGuide_c02(el){
+  const b=document.getElementById('guide-body-c02');
+  const a=document.getElementById('guide-arrow-c02');
+  b.classList.toggle('open');
+  a.textContent=b.classList.contains('open')?'▲ recolher':'▼ expandir';
+}
+
+function buildSparkline(id,data,color){
+  const el=document.getElementById(id);
+  if(!el) return;
+  new Chart(el,{type:'line',data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,borderWidth:1.5,pointRadius:0,tension:0.4,fill:true,backgroundColor:color.replace(')',',0.1)').replace('rgb','rgba')}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:false}},scales:{x:{display:false},y:{display:false}},elements:{line:{borderCapStyle:'round'}}}});
+}
+
+function buildCharts(active){
+  if(!active) return;
+  const d=_PDATA2[_curP2];
+
+  // Sparklines always
+  if(!_charts2.sp1){
+    _charts2.sp1=true;
+    buildSparkline('sp1',d.spkRec,_C2.b);
+    buildSparkline('sp2',d.spkDp,_C2.r);
+    buildSparkline('sp3',d.spkDt,_C2.a);
+    buildSparkline('sp4',d.spkOff,_C2.r);
+  }
+
+  if(active==='t1'){
+    if(!_charts2.cdiv){
+      _charts2.cdiv=new Chart(document.getElementById('c-div'),{type:'bar',
+        data:{labels:['Offline','Dig. Próprio','Dig. Terceiros'],
+          datasets:[
+            {label:'Viação Case',data:d.divVC,backgroundColor:[_C2.r+'CC',_C2.b+'CC',_C2.a+'CC'],borderRadius:5},
+            {label:'Grupo',data:d.divGR,backgroundColor:[_C2.r+'44',_C2.b+'44',_C2.a+'44'],borderRadius:5,borderDash:[4,4]}
+          ]},
+        options:{..._base2,indexAxis:'y',layout:{padding:{right:50}},
+          plugins:{..._DL2,legend:{display:true,labels:{color:_t2,font:{size:10},usePointStyle:true,pointStyleWidth:8}},
+          datalabels:{color:_W2,font:{size:10,weight:'bold'},formatter:v=>v>0?'+'+v.toFixed(1)+'%':v.toFixed(1)+'%',anchor:'end',align:'end',offset:3,display:true}},
+          scales:{x:{..._base2.scales.x,ticks:{..._base2.scales.x.ticks,callback:v=>v+'%'}},y:{..._base2.scales.y,grid:{display:false}}}}});
+    }
+    if(!_charts2.csaz){
+      _charts2.csaz=new Chart(document.getElementById('c-saz'),{type:'bar',
+        data:{labels:['Volume/mês','Receita/mês','TM médio'],
+          datasets:[
+            {label:'Jul-Dez 25',data:[5058,634.5,125.45],backgroundColor:_C2.b+'88',borderRadius:5},
+            {label:'Jan-Abr 26',data:[5080,599.7,118.06],backgroundColor:_C2.a+'88',borderRadius:5}
+          ]},
+        options:{..._base2,layout:{padding:{top:24}},
+          plugins:{..._DL2,legend:{display:true,labels:{color:_t2,font:{size:10},usePointStyle:true,pointStyleWidth:8}},
+          datalabels:{color:_W2,font:{size:9,weight:'bold'},formatter:(v,ctx)=>{
+            const l=ctx.chart.data.labels[ctx.dataIndex];
+            if(l.includes('Volume'))return v.toFixed(0)+' tkt';
+            if(l.includes('Receita'))return 'R$'+v.toFixed(0)+'k';
+            return 'R$'+v.toFixed(2);
+          },anchor:'end',align:'end',offset:2,display:true}},
+          scales:{x:{..._base2.scales.x},y:{display:false}}}});
+    }
+    if(!_charts2.cshare){
+      _charts2.cshare=new Chart(document.getElementById('c-share'),{type:'line',
+        data:{labels:['Base','Jul-Dez 25','Jan-Abr 26'],
+          datasets:[
+            {label:'Offline',data:[44.2,38.8,34.8],borderColor:_C2.r,backgroundColor:_C2.r+'22',fill:true,tension:0.3,borderWidth:2,pointRadius:4,pointBackgroundColor:_C2.r},
+            {label:'Dig. Próprio',data:[30.5,29.9,31.1],borderColor:_C2.b,backgroundColor:_C2.b+'22',fill:true,tension:0.3,borderWidth:2,pointRadius:4,pointBackgroundColor:_C2.b},
+            {label:'Dig. Terceiros',data:[25.8,31.4,34.0],borderColor:_C2.a,backgroundColor:_C2.a+'22',fill:true,tension:0.3,borderWidth:2,pointRadius:4,pointBackgroundColor:_C2.a}
+          ]},
+        options:{..._base2,
+          plugins:{..._DL2,legend:{display:true,position:'top',labels:{color:_t2,font:{size:10},usePointStyle:true,pointStyleWidth:8}},
+          datalabels:{color:_W2,font:{size:10,weight:'bold'},formatter:v=>v.toFixed(1)+'%',anchor:'center',align:'center',display:true}},
+          scales:{..._base2.scales,y:{..._base2.scales.y,ticks:{color:_t2,font:{size:10},callback:v=>v+'%'}}}}});
+    }
+  }
+
+  if(active==='t2'&&!_charts2.cdesc){
+    _charts2.cdesc=new Chart(document.getElementById('c-desc'),{type:'bar',
+      data:{labels:['Jul-Dez 25\n(com desconto)','Jan-Abr 26\n(sem desconto)'],
+        datasets:[
+          {label:'Var. Volume',data:[30.2,10.7],backgroundColor:[_C2.a,_C2.a+'55'],borderRadius:6},
+          {label:'Var. TM',data:[-4.4,0.8],backgroundColor:[_C2.r,_C2.g1+'55'],borderRadius:6}
+        ]},
+      options:{..._base2,layout:{padding:{top:28}},
+        plugins:{..._DL2,legend:{display:true,labels:{color:_t2,font:{size:10},usePointStyle:true,pointStyleWidth:8}},
+        datalabels:{color:_W2,font:{size:11,weight:'bold'},formatter:v=>v>0?'+'+v.toFixed(1)+'%':v.toFixed(1)+'%',anchor:'end',align:'end',offset:2,display:true}},
+        scales:{..._base2.scales,y:{..._base2.scales.y,ticks:{color:_t2,font:{size:10},callback:v=>v+'%'}}}}});
+  }
+
+  if(active==='t3'&&!_charts2.cwf){
+    const labels=['Receita Bruta','(-) Custos Canal','= MC1','(-) Custos Op.','= MC2','(-) Guichê','= MC3'];
+    // Dados: Próprio, Terceiros, Offline
+    _charts2.cwf=new Chart(document.getElementById('c-wf'),{type:'bar',
+      data:{labels,
+        datasets:[
+          {label:'Digital Próprio',data:[747,97,650,52,598,0,598],backgroundColor:(ctx)=>{
+            const l=labels[ctx.dataIndex];
+            if(l.startsWith('=')) return _C2.b;
+            if(l.startsWith('(-)')&&l.includes('Guichê')) return 'transparent';
+            if(l.startsWith('(-)')){ return _C2.b+'55';}
+            return _C2.b;
+          },borderRadius:4},
+          {label:'Dig. Terceiros',data:[816,114,702,25,677,0,677],backgroundColor:(ctx)=>{
+            const l=labels[ctx.dataIndex];
+            if(l.startsWith('=')) return _C2.a;
+            if(l.startsWith('(-)')&&l.includes('Guichê')) return 'transparent';
+            if(l.startsWith('(-)')){ return _C2.a+'55';}
+            return _C2.a;
+          },borderRadius:4},
+          {label:'Offline',data:[836,17,819,17,802,100,702],backgroundColor:(ctx)=>{
+            const l=labels[ctx.dataIndex];
+            if(l.startsWith('=')) return '#888';
+            if(l.startsWith('(-)')){ return _C2.r+'55';}
+            return '#888';
+          },borderRadius:4}
+        ]},
+      options:{..._base2,layout:{padding:{top:24}},
+        plugins:{..._DL2,legend:{display:true,position:'top',labels:{color:_t2,font:{size:10},usePointStyle:true,pointStyleWidth:8}},
+        datalabels:{color:_W2,font:{size:9,weight:'bold'},formatter:(v,ctx)=>{
+          if(v===0) return '';
+          return v>100?'R$'+v+'k':'R$'+v+'k';
+        },anchor:'end',align:'end',offset:2,display:ctx=>ctx.dataset.data[ctx.dataIndex]>50}},
+        scales:{..._base2.scales,y:{..._base2.scales.y,ticks:{color:_t2,font:{size:10},callback:v=>'R$'+v+'k'}}}}});
+  }
+}
+
+
+function initC02Charts(){updateKPIs();updateTable();renderLollipop();updateCtrlInfo();var _p=document.getElementById('panel-c02');var _a=_p?_p.querySelector('.sec.on'):null;setTimeout(function(){buildCharts(_a?_a.id:'t1');},80);}</script>
+<script>
+
+const _W1='rgba(255,255,255,0.9)',_g1='rgba(255,255,255,0.06)',_t1='rgba(255,255,255,0.45)';
+const _C1={b:'#4D9EFF',b2:'#1A5FCC',g1:'#2DD4A0',g2:'#0F6E56',r:'#FF6060',a:'#FFB547',p:'#A78BFA'};
+const _base1={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},datalabels:{display:false}},scales:{x:{grid:{color:_g1},ticks:{color:_t1,font:{size:10}}},y:{grid:{color:_g1},ticks:{color:_t1,font:{size:10}}}}};
+
+let _curP1='ja', _curC1='yoy', curV='grupo';
+let _charts1={};
+
+const _D1={
+  ja:{
+    yoy:{info:'Jan-Abr 2026 · comparando com Jan-Abr 2025',note:'YoY = Jan-Abr 2026 vs Jan-Abr 2025. Dados reais da planilha.',kRec:'R$59,9M',kRecS:'<span class="up">+2,3% YoY</span>',th:'Var. YoY',rows:[['R$35,6M','<span class="chip cd">-1,6%</span>','59,5%','R$104,97','<span class="chip ca">Atenção</span>'],['R$12,7M','<span class="chip cu">+10,9%</span>','21,2%','R$131,67','<span class="chip cu">OK</span>'],['R$11,6M','<span class="chip cu">+6,4%</span>','19,3%','R$142,66','<span class="chip ca">Revisar</span>'],['<strong>R$59,9M</strong>','<strong>+2,3%</strong>','100%','—','—']]},
+    mom:{info:'Jan-Abr 2026 · Abril vs Março',note:'★ MoM = Abr/26 vs Mar/26. Último mês do período. Parcialmente ilustrativo.',kRec:'R$15,0M',kRecS:'<span class="dn">-0,7% MoM</span>',th:'Var. MoM',rows:[['R$8,6M','<span class="chip cd">-6,5%</span>','57,3%','R$103,20','<span class="chip cd">Queda</span>'],['R$3,4M','<span class="chip cu">+13,3%</span>','22,7%','R$132,50','<span class="chip cu">OK</span>'],['R$3,0M','<span class="chip cu">+3,4%</span>','20,0%','R$141,80','<span class="chip ca">Estável</span>'],['<strong>R$15,0M</strong>','<strong>-0,7%</strong>','100%','—','—']]},
+    meta:{info:'Jan-Abr 2026 · realizado vs meta do período',note:'★ Metas ilustrativas. No modelo real viriam do plano comercial aprovado.',kRec:'R$59,9M',kRecS:'<span class="dn">-3,4% vs meta</span>',th:'vs Meta',rows:[['R$35,6M','<span class="chip cd">-2,5% (meta R$36,5M)</span>','59,5%','R$104,97','<span class="chip ca">Atenção</span>'],['R$12,7M','<span class="chip cd">-18,1% (meta R$15,5M)</span>','21,2%','R$131,67','<span class="chip cd">Crítico</span>'],['R$11,6M','<span class="chip cu">+16% (meta R$10M)</span>','19,3%','R$142,66','<span class="chip ca">Acima meta ⚠</span>'],['<strong>R$59,9M</strong>','<strong>-3,4% (meta R$62M)</strong>','100%','—','—']]}
+  },
+  jd:{
+    yoy:{info:'Jul-Dez 2025 · comparando com Jul-Dez 2024',note:'YoY = Jul-Dez 2025 vs Jul-Dez 2024. Dados reais da planilha.',kRec:'R$98,7M',kRecS:'<span class="up">+1,6% YoY</span>',th:'Var. YoY',rows:[['R$60,4M','<span class="chip cd">-3,0%</span>','61,2%','R$109,73','<span class="chip ca">Atenção</span>'],['R$20,6M','<span class="chip cu">+6,8%</span>','20,9%','R$136,70','<span class="chip cu">OK</span>'],['R$17,7M','<span class="chip cu">+13,4%</span>','17,9%','R$144,41','<span class="chip ca">Revisar</span>'],['<strong>R$98,7M</strong>','<strong>+1,6%</strong>','100%','—','—']]},
+    mom:{info:'Jul-Dez 2025 · Dezembro vs Novembro',note:'★ MoM = Dez/25 vs Nov/25. Parcialmente ilustrativo.',kRec:'R$18,5M',kRecS:'<span class="dn">-5,1% MoM</span>',th:'Var. MoM',rows:[['R$11,8M','<span class="chip cd">-4,1%</span>','63,8%','R$108,50','<span class="chip cd">Queda</span>'],['R$3,5M','<span class="chip cd">-7,9%</span>','18,9%','R$135,20','<span class="chip ca">Atenção</span>'],['R$3,2M','<span class="chip cd">-5,9%</span>','17,3%','R$143,10','<span class="chip ca">Atenção</span>'],['<strong>R$18,5M</strong>','<strong>-5,1%</strong>','100%','—','—']]},
+    meta:{info:'Jul-Dez 2025 · realizado vs meta do semestre',note:'★ Metas ilustrativas.',kRec:'R$98,7M',kRecS:'<span class="dn">-4,2% vs meta</span>',th:'vs Meta',rows:[['R$60,4M','<span class="chip cd">-5,6% (meta R$64M)</span>','61,2%','R$109,73','<span class="chip ca">Atenção</span>'],['R$20,6M','<span class="chip cd">-14,2% (meta R$24M)</span>','20,9%','R$136,70','<span class="chip cd">Crítico</span>'],['R$17,7M','<span class="chip cu">+18% (meta R$15M)</span>','17,9%','R$144,41','<span class="chip ca">Acima meta ⚠</span>'],['<strong>R$98,7M</strong>','<strong>-4,2% (meta R$103M)</strong>','100%','—','—']]}
+  }
+};
+
+const _mT1={yoy:'<span class="mode-tag mt-yoy">YoY</span>',mom:'<span class="mode-tag mt-mom">MoM</span>',meta:'<span class="mode-tag mt-meta">vs Meta</span>'};
+
+function updateTable(){
+  const d=_D1[_curP1][_curC1];
+  document.getElementById('ctrl-info-c01').textContent=d.info;
+  document.getElementById('comp-note').textContent=d.note.replace('★ ','');
+  document.getElementById('k-rec').textContent=d.kRec;
+  document.getElementById('k-rec-s').innerHTML=d.kRecS;
+  document.getElementById('th-col2').textContent=d.th;
+  document.getElementById('n1-mode-tag-wrap').innerHTML=_mT1[_curC1];
+  const ids=[['_t1-off-rec','_t1-off-var','_t1-off-sh','_t1-off-tm','_t1-off-st'],['_t1-dp-rec','_t1-dp-var','_t1-dp-sh','_t1-dp-tm','_t1-dp-st'],['_t1-dt-rec','_t1-dt-var','_t1-dt-sh','_t1-dt-tm','_t1-dt-st'],['_t1-tot-rec','_t1-tot-var']];
+  d.rows.forEach((row,ri)=>row.forEach((val,ci)=>{const el=document.getElementById(ids[ri]?.[ci]);if(el)el.innerHTML=val;}));
+  if(_curP1==='jd'){
+    document.getElementById('k-dp').textContent='R$20,6M';
+    document.getElementById('k-dp-s').innerHTML='<span class="up">+6,8% YoY</span>';
+    document.getElementById('k-dt').textContent='R$17,7M';
+    document.getElementById('k-dt-s').textContent='Comissão: ~R$2,1M/ano';
+    document.getElementById('k-dt-sh').textContent='17,9% do total';
+  } else {
+    document.getElementById('k-dp').textContent='R$12,7M';
+    document.getElementById('k-dp-s').innerHTML='<span class="up">+10,9% YoY</span>';
+    document.getElementById('k-dt').textContent='R$11,6M';
+    document.getElementById('k-dt-s').textContent='Comissão: ~R$1,4M/ano';
+    document.getElementById('k-dt-sh').textContent='19,3% do total';
+  }
+}
+
+function setPeriod_c01(p,btn){
+  document.querySelectorAll('.pb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); _curP1=p;
+  Object.values(_charts1).forEach(c=>{try{c.destroy()}catch(e){}});
+  _charts1={};
+  updateTable();
+  setTimeout(function(){var _p=document.getElementById('panel-c01');var _a=_p?_p.querySelector('.sec.on'):null;buildCharts(_a?_a.id:'n1');},80);
+}
+
+function setComp_c01(c,btn){
+  document.querySelectorAll('.cb').forEach(b=>{b.classList.remove('on-yoy','on-mom','on-meta');});
+  btn.classList.add('on-'+c); _curC1=c; updateTable();
+}
+
+function setVia_c01(v,btn){
+  document.querySelectorAll('.vb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); curV=v;
+  ['via-grupo','via-vc','via-comp'].forEach(id=>{document.getElementById(id).style.display='none';});
+  document.getElementById('via-'+v).style.display='block';
+  Object.keys(_charts1).filter(k=>k.startsWith('c-')).forEach(k=>{try{_charts1[k].destroy()}catch(e){} delete _charts1[k];});
+  setTimeout(()=>buildCharts('n2'),80);
+}
+
+function showTab_c01(el,id){
+  document.querySelectorAll('.tab').forEach(_t1=>_t1.classList.remove('on'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  el.classList.add('on'); document.getElementById(id).classList.add('on');
+  setTimeout(()=>buildCharts(id),80);
+}
+
+function toggleGuide_c01(el){
+  const b=document.getElementById('guide-body-c01');
+  const a=document.getElementById('guide-arrow-c01');
+  b.classList.toggle('open');
+  a.textContent=b.classList.contains('open')?'▲ recolher':'▼ expandir';
+}
+
+function buildCharts(active){
+  if(!active) return;
+  const isJD=_curP1==='jd';
+
+  if(active==='n1'&&!_charts1.c1){
+    const labels=isJD?['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']:['Jul','Ago','Set','Out','Nov','Dez','Jan','Fev','Mar','Abr'];
+    const off=isJD?[9.8,9.5,10.1,9.7,10.2,10.0,10.2,9.8,10.5,11.1,12.3,11.8]:[10.2,9.8,10.5,11.1,12.3,11.8,9.1,8.7,9.2,8.6];
+    const dp=isJD?[2.5,2.6,2.7,2.8,2.9,2.9,2.8,3.0,3.2,3.3,3.8,3.5]:[2.8,3.0,3.2,3.3,3.8,3.5,3.1,3.2,3.0,3.4];
+    const dt=isJD?[2.3,2.4,2.5,2.6,2.7,2.8,2.6,2.8,2.9,3.0,3.4,3.2]:[2.6,2.8,2.9,3.0,3.4,3.2,2.8,2.9,2.9,3.0];
+    _charts1.c1=new Chart(document.getElementById('c1'),{type:'bar',data:{labels,datasets:[{label:'Offline',data:off,backgroundColor:_C1.r+'88',borderRadius:3},{label:'Dig. Próprio',data:dp,backgroundColor:_C1.b,borderRadius:3},{label:'Dig. Terc.',data:dt,backgroundColor:_C1.g1+'88',borderRadius:3}]},options:{..._base1,plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}}},scales:{..._base1.scales,y:{..._base1.scales.y,ticks:{color:_t1,font:{size:10},callback:v=>'R$'+v+'M'}}}}});
+  }
+
+  if(active==='n2'){
+    if(curV==='grupo'&&!_charts1.c2){
+      _charts1.c2=new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['Google Ads','Meta Ads','CRM/Email','Orgânico'],datasets:[{data:[8.4,6.1,45,0],backgroundColor:[_C1.b,_C1.b2,_C1.p,_C1.g2],borderRadius:5}]},options:{..._base1,layout:{padding:{top:20}},plugins:{..._base1.plugins,datalabels:{color:_W1,font:{size:11,weight:'bold'},formatter:v=>v===0?'—':v.toFixed(1)+'x',anchor:'end',align:'end',offset:2}},scales:{..._base1.scales,y:{..._base1.scales.y,ticks:{color:_t1,font:{size:10},callback:v=>v+'x'}}}}});
+      const shL=isJD?['Jan','Mar','Mai','Jul','Set','Nov']:['Nov','Dez','Jan','Fev','Mar','Abr'];
+      _charts1.c3=new Chart(document.getElementById('c3'),{type:'line',data:{labels:shL,datasets:[{label:'Próprio %',data:[19.8,20.1,20.5,21.0,20.8,21.2],borderColor:_C1.b,backgroundColor:_C1.b+'22',tension:0.4,fill:true,borderWidth:2,pointRadius:3},{label:'Terceiros %',data:[18.1,18.5,18.8,19.0,19.2,19.3],borderColor:_C1.g1,backgroundColor:_C1.g1+'11',tension:0.4,fill:true,borderWidth:2,pointRadius:3}]},options:{..._base1,plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}}},scales:{..._base1.scales,y:{..._base1.scales.y,ticks:{color:_t1,font:{size:10},callback:v=>v+'%'}}}}});
+    }
+    if(curV==='vc'&&!_charts1['c-vc-share']){
+      _charts1['c-vc-share']=new Chart(document.getElementById('c-vc-share'),{type:'bar',data:{labels:['Base','Jul-Dez 25','Jan-Abr 26'],datasets:[{label:'Offline',data:[44.2,38.8,34.8],backgroundColor:_C1.r+'88',borderRadius:3},{label:'Próprio',data:[30.5,29.9,31.1],backgroundColor:_C1.b,borderRadius:3},{label:'Terceiros',data:[25.8,31.4,34.0],backgroundColor:_C1.a+'88',borderRadius:3}]},options:{..._base1,plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}}},scales:{x:{..._base1.scales.x,stacked:true},y:{..._base1.scales.y,stacked:true,ticks:{color:_t1,font:{size:10},callback:v=>v+'%'}}}}});
+      _charts1['c-vc-tm']=new Chart(document.getElementById('c-vc-tm'),{type:'bar',data:{labels:['Offline','Dig. Próprio','Dig. Terceiros'],datasets:[{label:'Viação Case',data:[102.85,129.07,127.41],backgroundColor:[_C1.r+'AA',_C1.b+'AA',_C1.a+'AA'],borderRadius:5},{label:'Grupo',data:[104.97,131.67,142.66],backgroundColor:[_C1.r,_C1.b,_C1.a],borderRadius:5}]},options:{..._base1,plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}}},scales:{..._base1.scales,y:{..._base1.scales.y,ticks:{color:_t1,font:{size:10},callback:v=>'R$'+v.toFixed(0)}}}}});
+    }
+    if(curV==='comp'&&!_charts1['c-comp']){
+      _charts1['c-comp']=new Chart(document.getElementById('c-comp'),{type:'bar',data:{labels:['Offline','Digital Próprio','Digital Terceiros','Total'],datasets:[{label:'Viação Case',data:[-8.8,3.2,11.6,1.2],backgroundColor:_C1.a,borderRadius:4},{label:'Grupo Total',data:[-1.6,10.9,6.4,2.3],backgroundColor:_C1.b,borderRadius:4}]},options:{..._base1,layout:{padding:{top:24}},plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}},datalabels:{color:_W1,font:{size:11,weight:'bold'},formatter:v=>v>0?'+'+v.toFixed(1)+'%':v.toFixed(1)+'%',anchor:'end',align:'end',offset:2}},scales:{..._base1.scales,y:{..._base1.scales.y,ticks:{color:_t1,font:{size:10},callback:v=>v+'%'}}}}});
+    }
+  }
+
+  if(active==='n3'&&!_charts1.c4){
+    _charts1.c4=new Chart(document.getElementById('c4'),{type:'line',data:{labels:['Nov','Dez','Jan','Fev','Mar','Abr'],datasets:[{label:'Desktop',data:[2.8,3.0,2.9,3.0,2.8,3.2],borderColor:_C1.b,borderWidth:2,tension:0.4,pointRadius:3,backgroundColor:'transparent'},{label:'Mobile',data:[1.6,1.7,1.7,1.8,1.7,1.8],borderColor:_C1.r,borderWidth:2,tension:0.4,pointRadius:3,backgroundColor:'transparent'},{label:'App',data:[2.3,2.4,2.5,2.5,2.6,2.7],borderColor:_C1.g1,borderWidth:2,tension:0.4,pointRadius:3,backgroundColor:'transparent'}]},options:{..._base1,plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}}},scales:{..._base1.scales,y:{..._base1.scales.y,ticks:{color:_t1,font:{size:10},callback:v=>v+'%'}}}}});
+  }
+
+  if(active==='n4'&&!_charts1.c5){
+    _charts1.c5=new Chart(document.getElementById('c5'),{type:'bar',data:{labels:['Nov','Dez','Jan','Fev','Mar','Abr'],datasets:[{data:[168,172,176,179,182,185],backgroundColor:_C1.b,borderRadius:5}]},options:{..._base1,layout:{padding:{top:20}},plugins:{..._base1.plugins,datalabels:{color:_W1,font:{size:10,weight:'bold'},formatter:v=>v+'k',anchor:'end',align:'end',offset:2}},scales:{..._base1.scales,y:{..._base1.scales.y,min:160,ticks:{color:_t1,font:{size:10},callback:v=>v+'k'}}}}});
+    _charts1.c6=new Chart(document.getElementById('c6'),{type:'doughnut',data:{labels:['Fidelizados','Recorrentes','Transacionais'],datasets:[{data:[12,22,66],backgroundColor:[_C1.g1,_C1.b,_C1.a+'BB'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'right',labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}},datalabels:{color:_W1,font:{size:11,weight:'bold'},formatter:v=>v+'%'}}}});
+  }
+
+  if(active==='n5'&&!_charts1.c7){
+    _charts1.c7=new Chart(document.getElementById('c7'),{type:'bar',data:{labels:['Cancelamento','Info passagem','Atraso','Remarcação','Outros'],datasets:[{label:'IA',data:[312,286,198,241,219],backgroundColor:_C1.g1,borderRadius:4},{label:'Humano',data:[88,64,142,59,38],backgroundColor:_C1.r+'88',borderRadius:4}]},options:{..._base1,plugins:{..._base1.plugins,legend:{display:true,labels:{color:_t1,font:{size:10},usePointStyle:true,pointStyleWidth:8}}},scales:{x:{..._base1.scales.x,stacked:true},y:{..._base1.scales.y,stacked:true,ticks:{color:_t1,font:{size:10}}}}}});
+  }
+}
+
+function initC01Charts(){updateTable();var _p=document.getElementById('panel-c01');var _a=_p?_p.querySelector('.sec.on'):null;setTimeout(function(){buildCharts(_a?_a.id:'n1');},80);}</script>
+<script>
+function showTab_c03(el,id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  el.classList.add('on');document.getElementById(id).classList.add('on');
+}
+function toggleGuide_c03(el){
+  const b=document.getElementById('guide-body-c03');
+  const a=document.getElementById('guide-arrow-c03');
+  b.classList.toggle('open');
+  a.textContent=b.classList.contains('open')?'▲ recolher':'▼ expandir';
+}
+const _S3=['s-plan','s-wip','s-done'];
+const _P3=[0,50,100];
+const _PC3=['var(--t3)','var(--amber)','var(--green)'];
+function cycleStatus_c03(card){
+  const dot=card.querySelector('.kb-status');
+  const bar=card.querySelector('.kb-progress-fill');
+  let s=(parseInt(card.dataset.s)||0);
+  s=(s+1)%3;
+  card.dataset.s=s;
+  dot.className='kb-status '+_S3[s];
+  bar.style.width=_P3[s]+'%';
+  bar.style.background=_PC3[s];
+  card.classList.toggle('done',s===2);
+}
+</script>
+</body></html>
